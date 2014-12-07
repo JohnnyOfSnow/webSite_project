@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+}
+@media screen and (min-width:600px) {
+	nav {
+  		float: left;
+  		background-color: black;
+ 		color: white;
+  		position: absolute;
+  		top: 70px;
+  		left: 0px;
+  		width: 200px;
+	}
+}
+section {
+  background-color: white;
+  /* position is static by default */
+  margin-left: 200px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  background-color: black;
+  width: 100%;
+  color: white;
+}
+body {
+  margin-bottom: 120px;
+}
+
+p.demo {
+    color: white;
+    background-color: blue;
+}
+
+p.green{
+    color : green ;
+}
+
+p#red{
+    color : red ;
+}
+
+h3, h4 {
+    font-family : sans-serif ;
+    color : gray;
+}
+h3 {
+    border-bottom : 1px solid black;
+}
+
+blockquote {
+    color: rgb(128, 0, 128);
+}

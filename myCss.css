@@ -1,22 +1,33 @@
 .container {
   position: relative;
 }
+
+/*左邊選單採用的樣式*/
 @media screen and (min-width:600px) {
 	nav {
+		
   		float: left;
   		background-color: black;
  		color: white;
   		position: absolute;
   		top: 70px;
   		left: 0px;
-  		width: 200px;
+  		width: 180px;
+		margin-top: 40px;
 	}
 }
+/*本文的區塊*/
 section {
+
   background-color: white;
   /* position is static by default */
-  margin-left: 200px;
+  margin-left: 180px;
+  margin-top: 120px;
+  margin-right: 60px;
+  bottom: 0;
+  padding: 6px 7px 8px 9px
 }
+/*ㄧ值固定於下方的區塊*/
 footer {
   position: fixed;
   bottom: 0;
@@ -26,13 +37,14 @@ footer {
   width: 100%;
   color: white;
 }
+/*預留120像素*/
 body {
   margin-bottom: 120px;
 }
 
 p.demo {
     color: white;
-    background-color: blue;
+    background-color: black;
 }
 
 p.green{
@@ -41,6 +53,10 @@ p.green{
 
 p#red{
     color : red ;
+}
+
+p.white{
+    color : white ;
 }
 
 h3, h4 {
@@ -52,5 +68,31 @@ h3 {
 }
 
 blockquote {
-    color: rgb(128, 0, 128);
+    color: rgb(128, 0, 128);/*紫色*/
 }
+
+leftChoose{
+	font-size:14px;
+	color: white;
+}
+
+/*對所有的超連結宣告樣式*/
+a:link {
+	color = white;
+	text-decoration: none;
+}
+/*對所有的已按過的超連結宣告樣式*/
+a:visited {
+	color: white;
+	text-decoration: none;
+}
+/*當滑鼠滑上某個超連結的樣式*/
+a:hover {
+	color: red;
+}
+
+
+
+
+
+

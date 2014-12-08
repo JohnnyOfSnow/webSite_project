@@ -41,20 +41,20 @@
 、使用的方法，統稱為物件成員。</blockquote>
 			<div class="pt">以下面的例子來說明：</div>
 				<pre>
-					class Watermelon{
-						String peelColor = "green";
-						boolean status = false;
+		class Watermelon{
+			String peelColor = "green";
+			boolean status = false;
 						
-						Watermelon(){
+			Watermelon(){
 						
-						}
+			}
 						
-						boolean isMature(boolean newStatus){
-							status = newStatus;
-							return status;
-						}
-					}
-				</pre>
+			boolean isMature(boolean newStatus){
+				status = newStatus;
+				return status;
+			}
+		}
+		</pre>
 				
 			<p class="green">
 				藉由觀察生活中的西瓜，我們定義了它的果皮顏色，以及狀態(是否成熟)，一個不需要傳參數的
@@ -67,25 +67,25 @@
 、使用的方法。</blockquote>
 			<div class="pt">以下面的例子來說明：</div>
 			<pre>
-					public class Orange{
-						static String peelColor = "green";
-						static boolean status = false;
+		public class Orange{
+			static String peelColor = "green";
+			static boolean status = false;
 	
-						public static void main(String[] args){
-							System.out.println("Orange peel color is: " + peelColor); // (o)
-							System.out.println("Is orange mature?: " + getMature()); // (o)
-							System.out.println("Is orange mature?: " + isMature(true)); // (x)
-						}
+			public static void main(String[] args){
+				System.out.println("Orange peel color is: " + peelColor); // (o)
+				System.out.println("Is orange mature?: " + getMature()); // (o)
+				System.out.println("Is orange mature?: " + isMature(true)); // (x)
+			}
 	
-						boolean isMature(boolean newStatus){
-							status = newStatus;
-							return status;
-						}
+			boolean isMature(boolean newStatus){
+				status = newStatus;
+				return status;
+			}
 
-						static boolean getMature(){
-							return status;
-						}
-					}
+			static boolean getMature(){
+				return status;
+			}
+		}
 			</pre>
 			<p class="green">
 				看完程式後，你發現在變數前面多出了static，方法也是多出了static，這些前面有static的成員，

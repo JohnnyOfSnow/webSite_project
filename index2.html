@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+
+	<body bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  物件導向程式概說</li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  Local vs. global</li>
+				<li>  判斷式介紹</li>
+				<li>  迴圈介紹</li>
+				<li>  常見程式錯誤</li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  物件導向程式概說</li>
+				<li>  定義類別、變數、方法</li>
+				<li>  Static vs. instance</li>
+				<li>  Local vs. global</li>
+				<li>  判斷式介紹</li>
+				<li>  迴圈介紹</li>
+				<li>  常見程式錯誤</li></leftChoose>
+			</ul>
+			
+		</nav>
+		<section>
+			<h3>三、Static vs Instance</h3>
+			<p class="demo">一、instance(物件)成員</p>
+			<blockquote>你現在已經了解到，我們定義一個類別，要先觀察思考建構出的物件有哪些特徵
+，靜態的定義為變數，動態的定義為方法。因此，這些需要透過物件存取的變數
+、使用的方法，統稱為物件成員。</blockquote>
+			<div class="pt">以下面的例子來說明：</div>
+				<pre>
+					class Watermelon{
+						String peelColor = "green";
+						boolean status = false;
+						
+						Watermelon(){
+						
+						}
+						
+						boolean isMature(boolean newStatus){
+							status = newStatus;
+							return status;
+						}
+					}
+				</pre>
+				
+			<p class="green">
+				藉由觀察生活中的西瓜，我們定義了它的果皮顏色，以及狀態(是否成熟)，一個不需要傳參數的
+建構子，讓使用者創建西瓜物件，一個方法名為是否成熟，要傳入一個狀態，最後會回傳boolean值
+(true代表成熟 false代表沒熟)，以上說的這些都需要透過物件才能使用。都稱為 instance member
+(物件成員)</p>
+
+			<p class="demo">二、static(靜態)成員</p>
+			<blockquote>在上面你已經學到並了解到instance member(物件成員)，現在要學習一種不需要物件就能存取的變數
+、使用的方法。</blockquote>
+			<div class="pt">以下面的例子來說明：</div>
+			<pre>
+					public class Orange{
+						static String peelColor = "green";
+						static boolean status = false;
+	
+						public static void main(String[] args){
+							System.out.println("Orange peel color is: " + peelColor); // (o)
+							System.out.println("Is orange mature?: " + getMature()); // (o)
+							System.out.println("Is orange mature?: " + isMature(true)); // (x)
+						}
+	
+						boolean isMature(boolean newStatus){
+							status = newStatus;
+							return status;
+						}
+
+						static boolean getMature(){
+							return status;
+						}
+					}
+			</pre>
+			<p class="green">
+				看完程式後，你發現在變數前面多出了static，方法也是多出了static，這些前面有static的成員，
+當所在的類別載入時就跟著一起載入，有載入就能夠使用，因此在執行main method時，class Orange
+已經載入，在class Orange裡有static的成員也跟著一起，所以可以在main method裡 取用變數
+peelColor，使用方法getMature()，而isMature 它沒有static，要使用它必須要先創建一個class
+Orange的物件，再利用 物件名.isMature(true) 的方式。</p>
+		
+		</section>
+		<footer>
+			<a href = "weclome.html" target="content"><p class="white">return to index</p></a>
+		</footer>
+	</body>
+
+
+
+</html>

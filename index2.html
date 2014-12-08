@@ -93,6 +93,34 @@
 已經載入，在class Orange裡有static的成員也跟著一起，所以可以在main method裡 取用變數
 peelColor，使用方法getMature()，而isMature 它沒有static，要使用它必須要先創建一個class
 Orange的物件，再利用 物件名.isMature(true) 的方式。</p>
+
+		<p class="demo">三、Static 和 instance 的差別</p>
+		<blockquote>我們來比較這2個使用上和意義上的差別</blockquote>
+		<table  border="1">
+			<tr>
+				<td>比較項目</td><td>static member</td><td>instance member</td></tr>
+			<tr>
+				<td>需不需要物件</td><td>不需要</td><td>需要</td></tr>
+			<tr>
+				<td>隨著..而存在</td><td>類別(class)</td><td>物件(object)</td></tr>
+			<tr>
+				<td>宣告變數方式</td><td>static double radius = 1;</td><td>double radius = 1;</td></tr>
+			<tr>
+				<td>宣告方法方式</td><td>
+<pre>
+	static double getArea(){
+		return area;
+	}						
+	</pre></td><td>
+<pre>
+	double getArea(){
+		return area;
+	}						
+	</pre></td></tr>
+			<tr>
+				<td>載入記憶體次數</td><td>1次</td><td>物件數量有幾個就幾次</td></tr>
+			
+		</table>
 		
 		</section>
 		<footer>

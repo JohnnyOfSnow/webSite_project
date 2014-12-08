@@ -1,0 +1,73 @@
+一、instance(物件)成員
+你現在已經了解到，我們定義一個類別，要先觀察思考建構出的物件有哪些特徵
+，靜態的定義為變數，動態的定義為方法。因此，這些需要透過物件存取的變數
+、使用的方法，統稱為物件成員。
+
+以下面的例子來說明：
+
+class Watermelon{
+	String peelColor = "green";
+	boolean status = false;
+	
+	Watermelon(){
+
+	}
+
+	boolean isMature(boolean newStatus){
+		status = newStatus;
+		return status;
+	}
+}
+
+藉由觀察生活中的西瓜，我們定義了它的果皮顏色，以及狀態(是否成熟)，一個不需要傳參數的
+建構子，讓使用者創建西瓜物件，一個方法名為是否成熟，要傳入一個狀態，最後會回傳boolean值
+(true代表成熟 false代表沒熟)，以上說的這些都需要透過物件才能使用。都稱為 instance member
+(物件成員)
+
+二、static(靜態)成員
+在上面你已經學到並了解到instance member(物件成員)，現在要學習一種不需要物件就能存取的變數
+、使用的方法。
+
+以下面的例子來說明：
+
+public class Orange{
+	static String peelColor = "green";
+	static boolean status = false;
+	
+	public static void main(String[] args){
+		System.out.println("Orange peel color is: " + peelColor); // (o)
+		System.out.println("Is orange mature?: " + getMature()); // (o)
+		System.out.println("Is orange mature?: " + isMature(true)); // (x)
+	}
+	
+	boolean isMature(boolean newStatus){
+		status = newStatus;
+		return status;
+	}
+
+	static boolean getMature(){
+		return status;
+	}
+}
+
+看完程式後，你發現在變數前面多出了static，方法也是多出了static，這些前面有static的成員，
+當所在的類別載入時就跟著一起載入，有載入就能夠使用，因此在執行main method時，class Orange
+已經載入，在class Orange裡有static的成員也跟著一起，所以可以在main method裡 取用變數
+peelColor，使用方法getMature()，而isMature 它沒有static，要使用它必須要先創建一個class
+Orange的物件，再利用 物件名.isMature(true) 的方式。
+
+三、Static 和 instance 的差別
+我們來比較這2個使用上和意義上的差別
+			static       instance
+	需不需要物件    不需要         需要
+	隨著..而存在    類別(class)    物件(object)
+	宣告變數方式	static double radius = 1;   double radius = 1;
+	(都以半徑為例)
+	宣告方法方式	static double getArea(){                  double getArea(){
+				return radius * radius * 3.14;        return radius * radius * 3.14;
+			}                                         }
+	(都以得到圓面積為例)
+
+	載入記憶體次數  1次           物件數量有幾個就幾次
+
+

@@ -48,7 +48,7 @@
 			<p class="green">這個觀念對寫程式的人很重要，對java來說有Garbege Collection的機制，這個機制會回收沒有被用的變數方法等。所以注意variable of scope可以讓寫程式的人能在使用變數時取用的到，以免使用時找不到。</p>
 
 			<p class="demo">一、Local variable(區域變數)</p>
-			<blockquote>凡是定義在{ }內的變數存取時只能在同ㄧ{}內，這些變數稱為Local variable(區域變數)</blockquote>
+			<blockquote>在同ㄧ類別中，凡是定義在{ }內的變數存取時只能在同ㄧ{}內，這些變數稱為Local variable(區域變數)</blockquote>
 			<div class="pt">以下面的例子來說明：</div>
 			<pre>
 		class Orange{
@@ -56,7 +56,7 @@
 			boolean status = false;
 	
 			void eat(int time){
-				int count = time;
+				int count = time; // Local variable: count, time
 				System.out.println("I eat orange " + count + " time.");
 			}
 
@@ -67,8 +67,31 @@
 			</pre>
 			<p class="green">在上面的例子中我們看到Orange這個類別有2個變數為peelColor  status，有1個方法名為eat，需要傳入1個整數，在方法裡面有定義一個變數count，最後將吃橘子的次數印出來，另一個方法為take，最後將拿的橘子數量印出來。</p>
 			<p class="green">有1個變數count 它定義在方法裡，相對於變數peelColor status，它的{  } 顯得比較小，count只定義在方法eat裡，僅供方法eat使用，這種變數稱為Local variable(區域變數)，當然，方法take沒辦法使用count(因為count只定義在方法eat裡)。</p>
+			<p id="red">另外，在方法eat傳入的參數time，也屬於Local variable，還是回到Local variable(區域變數)的定義，變數time也和countㄧ樣，只能在方法裡面使用，ㄧ離開方法後就不存在了</p>
 			<p class="green">所以，在使用變數時需要注意它的{} 範圍(從我們現在寫的那一行來看)。</p>
-			
+
+			<p class="demo">二、Global variable(廣域變數)</p>
+			<blockquote>一個變數，在同ㄧ類別中可以被很多個方法使用，稱為Global variable(廣域變數)</blockquote>
+<div class="pt">以下面的例子來說明：</div>
+			<pre>
+		class Orange{
+			String peelColor = "green";
+			boolean status = false;
+	
+			void eat(int time){
+				int count = time;
+				System.out.println("Orange peel color is: " + peelColor);
+				System.out.println("I eat orange " + count + " time.");
+
+			}
+
+			void take(int number){
+				System.out.println("Orange peel color is: " + peelColor);
+				System.out.println("I take " + number + " orange.");
+			}	
+		}
+			</pre>
+		<p class="green">將剛剛在上面的程式碼中，在方法eat及take中再加入ㄧ句橘子的皮是什麼顏色，在這2個方法使用到變數peelColor，而peelColor定義在這2個方法之外，然而這2個方法都能使用，是否比上一個例子中的變數count有更大的使用範圍呢？這種在同ㄧ類別中可以被多個方法使用的變數稱為Global variable(廣域變數)</p>	
 
 
 		</section>

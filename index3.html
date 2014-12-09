@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+
+	<body bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">新手上路</p></h5>
+			<ul>
+				<leftChoose>	
+					<li>環境安裝與第1個程式</li>
+				</leftChoose>
+			</ul>
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  物件導向程式概說</li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  <a href = "index3.html" >Local vs. global</a></li>
+				<li>  判斷式介紹</li>
+				<li>  迴圈介紹</li>
+				<li>  常見程式錯誤</li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  定義類別、變數、方法</li>
+				<li>  Static vs. instance</li>
+				<li>  Local vs. global</li>
+				<li>  判斷式介紹</li>
+				<li>  迴圈介紹</li>	</leftChoose>
+			</ul>
+			
+		</nav>
+		<section>
+			<h3>四、Local vs Global</h3>
+			
+			<blockquote>你現在已經了解到 static 和 instance member 它們在程式中如何使用，也了解到他們的定義
+			。現在我們要開始討論一個問題，變數我們能夠存取的範圍是多大呢?</blockquote>
+			
+			<blockquote>在之前的頁面中，我們將變數放入{}內，這裡我們定義一個名詞：variable of scope</blockquote>
+			<p class="green">variable of scope：當一個變數宣告時它可以存在的範圍為在左大括弧{，ㄧ直到右大括弧}之間</p>
+			<p class="green">這個觀念對寫程式的人很重要，對java來說有Garbege Collection的機制，這個機制會回收沒有被用的變數方法等。所以注意variable of scope可以讓寫程式的人能在使用變數時取用的到，以免使用時找不到。</p>
+
+			<p class="demo">一、Local variable(區域變數)</p>
+			<blockquote>凡是定義在{ }內的變數存取時只能在同ㄧ{}內，這些變數稱為Local variable(區域變數)</blockquote>
+			<div class="pt">以下面的例子來說明：</div>
+			<pre>
+		class Orange{
+			String peelColor = "green";
+			boolean status = false;
+	
+			void eat(int time){
+				int count = time;
+				System.out.println("I eat orange " + count + " time.");
+			}
+
+			void take(int number){
+				System.out.println("I take " + number + " orange.");
+			}	
+		}
+			</pre>
+			<p class="green">在上面的例子中我們看到Orange這個類別有2個變數為peelColor  status，有1個方法名為eat，需要傳入1個整數，在方法裡面有定義一個變數count，最後將吃橘子的次數印出來，另一個方法為take，最後將拿的橘子數量印出來。</p>
+			<p class="green">有1個變數count 它定義在方法裡，相對於變數peelColor status，它的{  } 顯得比較小，count只定義在方法eat裡，僅供方法eat使用，這種變數稱為Local variable(區域變數)，當然，方法take沒辦法使用count(因為count只定義在方法eat裡)。</p>
+			<p class="green">所以，在使用變數時需要注意它的{} 範圍(從我們現在寫的那一行來看)。</p>
+			
+
+
+		</section>
+		<footer>
+			<a href = "weclome.html" target="content"><p class="white">return to index</p></a>
+		</footer>
+	</body>
+
+
+</html>

@@ -1,0 +1,32 @@
+Static vs Instance
+
+1.對於靜態成員的描述，下列哪個敘述是對的
+	1.它們通常需要先有物件才能用
+	2.它們的載入到記憶體次數，可能不只1次	
+	3.它們是隨著類別而存在
+	4.int radius 這樣子的宣告方式是一個static variable
+
+2.對於物件成員(instance member)的描述，下列哪個敘述是對的
+	1.instance variable 在使用時，在程式碼中直接寫變數名即可
+	2.它們是隨著類別而存在
+	3.它們的載入到記憶體次數，一定只有1次
+	4.它們是隨著物件而存在
+
+3.一個變數若要成為靜態變數，在宣告的前頭需要加上?
+	1.class
+	2.static	
+	3.instance
+	4.null
+
+4.哪一種方法的宣告方式為合法的 instance method?
+	1.static int get(){}
+	2.int static get(){}
+	3.get() int {}
+	4.int get(){}
+
+5.在main method 裡有這樣的句子， A a = new A()   a.getTitle()，以下哪句敘述是對的?
+	1. 若這段程式碼能執行，一定有定義類別a
+	2. 若這段程式碼能執行，一定有定義static member---> getTitle()
+	3. 若這段程式碼能執行，一定有定義static member---> A()
+	4. 若這段程式碼能執行，一定有定義instance member---> A()
+	

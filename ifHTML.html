@@ -33,12 +33,13 @@
 		
 		<script>
 			var numberI = document.cornform.n1.value;
-			var status;
+			var status = 0;
 			function next(){
 				document.getElementById("result").innerHTML = status +" " +numberI;
 				if(status == 0){
 					document.getElementById("one").style.backgroundColor = "#ff6";
 					status = 1;
+					
 				}else if(status == 1){
 					document.getElementById("one").style.backgroundColor = "#fff";
 					document.getElementById("two").style.backgroundColor = "#ff6";
@@ -50,18 +51,20 @@
 						document.getElementById("there").style.backgroundColor = "#ff6";
 						status = 3;
 					}else{
-						status = 3;
+						document.getElementById("two").style.backgroundColor = "#fff";
+						document.getElementById("four").style.backgroundColor = "#ff6";
+						status = 4;
 					}
 					
 				}else if(status == 3){
-					document.getElementById("two").style.backgroundColor = "#fff";
-					document.getElementById("four").style.backgroundColor = "#ff6";
+					document.getElementById("four").style.backgroundColor = "#fff";
+					document.getElementById("five").style.backgroundColor = "#ff6";
 					status = 4;
+					
 				}else if(status == 4){
 					document.getElementById("four").style.backgroundColor = "#fff";
 					document.getElementById("five").style.backgroundColor = "#ff6";
-					status = 5;
-				}else{
+					status = 4;
 				}
 			}
 		</script>

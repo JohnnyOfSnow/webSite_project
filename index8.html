@@ -1,0 +1,175 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+<body  bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">新手上路</p></h5>
+			<ul>
+				<leftChoose>	
+					<li>環境安裝與第1個程式</li>
+				</leftChoose>
+			</ul>
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  物件導向程式概說</li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  <a href = "index3.html" >Local vs. global</a></li>
+				<li>  判斷式介紹</li>
+				<li>  迴圈介紹</li>
+				<li>  常見程式錯誤</li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  定義類別、變數、方法</li>
+				<li>  <a href = "index7.html" >Static vs. instance</a></li>
+				<li>  Local vs. global</li>
+				<li>  判斷式介紹</li>
+				<li>  迴圈介紹</li></leftChoose>
+			</ul>
+			
+		</nav>
+
+		<section>
+			<p id="no">第 <font color="red">1</font>題</p>
+			<span id="prob1">關於建構函式的敘述，下列哪個錯誤?</span>
+			<input type="radio" name="p1" value="1" onclick="userreply=1;" selected=""><span id="item1">1.建構函式需與類別名稱相同</span>&nbsp;
+			<input type="radio" name="p1" value="2" onclick="userreply=2;"><span id="item2">2.建構函式不帶有回傳型態，也不帶有void</span>&nbsp;
+			<input type="radio" name="p1" value="3" onclick="userreply=3;"><span id="item3">3.物件被建立時，利用new呼叫建構函式</span>&nbsp;
+			<input type="radio" name="p1" value="4" onclick="userreply=4;"><span id="item4">4.public void circle()為建構函式</span>&nbsp;<br>
+			<br>
+			<button id="Check" onclick="checkans();">Check answer</button>
+			<button id="next" onclick="nextqest();"> 下一題</button>
+			<p id="report"></p>
+			<p id="reward"></p>
+			<p id="enhance"></p>
+		</section>
+		<script>
+			var itempool='';
+			itempool="對於靜態成員的描述，下列哪個敘述是對的,1.它們通常需要先有物件才能用,2.它們的載入到記憶體次數，可能不只1次,3.它們是隨著類別而存在,4.int radius 這樣子的宣告方式是一個static variable,";
+
+itempool+="對於物件成員(instance member)的描述，下列哪個敘述是對的,1.instance variable 在使用時，在程式碼中直接寫變數名即可,2.它們是隨著類別而存在,3.它們的載入到記憶體次數，一定只有1次,4.它們是隨著物件而存在,";
+
+itempool+="一個變數若要成為靜態變數，在宣告的前頭需要加上?,1.class,2.static,3.instance,4.null,";
+
+itempool+="哪一種方法的宣告方式為合法的 instance method?,1.static int get(){},2.int static get(){},3.get() int {},4.int get(){},";
+
+itempool+="在main method 裡有這樣的句子， A a = new A()   a.getTitle()，以下哪句敘述是對的?,1. 若這段程式碼能執行，一定有定義類別a,2. 若這段程式碼能執行，一定有定義static member---> getTitle(),3.若這段程式碼能執行，一定有定義static member---> A(),4.若這段程式碼能執行，一定有定義instance member---> getTitle()";
+
+
+
+var quest=new Array();
+var ans = new Array(3,4,2,4,4);//new can be omitted
+var re1 = new Array(0,0,0,0,0);
+var re2 = new Array("<img src=scarf.jpg width = 100 length = 100>是scarf圍巾<br>",
+"<img src=chair.jpg width = 100 length = 100>是chair椅子<br>",
+"<img src=0.jpg>是plant 植物  其他答案：planet 行星 plantation 農場 plantain 大蕉<br>",
+"<img src=goat.jpg width = 100 length = 100>goat是山羊<br>",
+"war 戰爭 lunch午餐 homework功課 river河流<br>",
+"<img src=book.jpg width = 100 length = 100>是book 書<br>",
+"<img src=desk.JPG width = 100 length = 100>是桌子 desk<br>",
+"<img src=glove.jpg width = 100 length = 100>是glove 手套<br>",
+"unfortunally 不幸的 pleasure 令人愉悅的 adventure 冒險的 malicious 惡意的<br>",
+"When<img src=rain.jpg width = 100 length = 100>. We can sleeping. go swimming, go jogging, and go outside are dangerous.<br>",
+"<img src=bed.jpg width = 100 length = 100>bed是床的意思<br>",
+"<img src=marker.jpg width = 100 length = 100>marker是彩虹筆的意思<br>");
+quest=itempool.split(",");
+total=quest.length/5;
+
+var realno=0;
+var userreply=0, sc=0;
+var repeat=0;
+var feed="";
+var times = 0;
+var good24 = 0;
+function checkans()
+{
+ if (repeat==0) {
+  if (userreply==ans[realno])
+   {
+    switch(times){
+	case 0:
+		sc+=5;
+		good24 = good24 + 1;
+	break;
+	case 1:
+		sc+=3;
+	break;
+	case 2:
+		sc+=1;
+	break;
+	default:
+		sc+=0;	
+    }
+
+    feed="答對!!";
+    re1[realno] = times;
+    times = 0;
+    repeat=1;//avoid answering repeatedly
+    realno++; //next question No.
+	var x = "";
+	for(var i = 0;i<realno;i++){
+	x = x+"<img src=SQUARE.jpg width = 50 length = 50>";
+    }
+	document.getElementById('reward').innerHTML=x +realno + "/ " + total;
+   }
+  else{
+    feed="答錯!!";
+    times++;
+  }
+  
+ }
+ document.getElementById('report').innerHTML=feed+"your score is <font color=red>"+sc+"</font>";
+}
+function nextqest()
+{
+	if (realno<total)
+	{
+		var audioElm = document.getElementById("audio1");
+		
+		repeat=0;
+		document.getElementById('no').innerHTML="第 <font color=red>"+eval(realno+1)+"</font>題";
+		var problem=document.getElementById('prob1');
+		problem.innerHTML=quest[eval(realno*5+0)];
+		var item1=document.getElementById('item1');
+		item1.innerHTML=quest[eval(realno*5+1)];
+		var item2=document.getElementById('item2');
+		item2.innerHTML=quest[eval(realno*5+2)];
+		var item3=document.getElementById('item3');
+		item3.innerHTML=quest[eval(realno*5+3)];
+		var item4=document.getElementById('item4');
+		item4.innerHTML=quest[eval(realno*5+4)];
+		
+	}
+	else{
+		var j = 0;
+		var i = "要加強的觀念:<br>";
+		
+		for(j = 0; j < re1.length; j++){
+			if(re1[j] > 1){
+				i = i + re2[j];
+			}
+		}
+		document.getElementById('enhance').innerHTML=i;
+		
+	}
+}
+window.onload=function (){
+nextqest();
+}
+</script>
+		<footer>
+			<a href = "weclome.html" target="content"><p class="white">return to index</p></a>
+		</footer>
+
+
+	</body>
+
+</html>

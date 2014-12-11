@@ -8,7 +8,7 @@
 	<form name=cornform>
 		<table>
 			<tr>
-				<td><p id = "one">int i = <input type=text value=0 name=n1 size="10">;</p></td><td></td>
+				<td><p id = "one">int i;</p></td><td></td>
 			</tr>
 			<tr>
 				<td><p id = "two">if(i == 3){</p></td>
@@ -23,7 +23,10 @@
 				<td><p id = "five">if 的外面</p></td>
 			</tr>
 			<tr>
-				<td><input type = "button"  value = "下一步" onClick = "next();"></td><td><input type = "button"  value = "全部清除"></td>
+				<td><input type = "button"  value = "下一步" onClick = "next();"></td><td><input type = "button"  value = "全部清除" onClick = "clear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 i</td><td><input type=text value="" id=n1 size="10"></td>
 			</tr>
 			<tr>
 				<td><p id = "result"></p></td>
@@ -32,11 +35,15 @@
 	</form>
 		
 		<script>
-			var numberI = document.cornform.n1.value;
-			var status = 0;
+			
+			var status = -1;
 			function next(){
+				var numberI = eval(document.cornform.n1.value);
 				document.getElementById("result").innerHTML = status +" " +numberI;
-				if(status == 0){
+				if(status == -1){
+					document.getElementById("one").innerHTML = "int i = " + numberI + ";";
+					status = 0;
+				}else if(status == 0){
 					document.getElementById("one").style.backgroundColor = "#ff6";
 					status = 1;
 					
@@ -57,8 +64,13 @@
 					}
 					
 				}else if(status == 3){
-					document.getElementById("four").style.backgroundColor = "#fff";
-					document.getElementById("five").style.backgroundColor = "#ff6";
+					if(numberI == 3){
+						document.getElementById("there").style.backgroundColor = "#fff";
+						document.getElementById("four").style.backgroundColor = "#ff6";
+					}else{
+						document.getElementById("four").style.backgroundColor = "#fff";
+						document.getElementById("five").style.backgroundColor = "#ff6";
+					}
 					status = 4;
 					
 				}else if(status == 4){
@@ -66,6 +78,10 @@
 					document.getElementById("five").style.backgroundColor = "#ff6";
 					status = 4;
 				}
+			}
+			function clear(){
+				status = -1;
+				document.getElementById("n1").innerHTML = "";
 			}
 		</script>
 	</body>

@@ -36,14 +36,12 @@
 		
 		<script>
 			
-			var status = -1;
+			var status = 0;
 			function next(){
 				var numberI = eval(document.cornform.n1.value);
 				document.getElementById("result").innerHTML = status +" " +numberI;
-				if(status == -1){
+				if(status == 0){
 					document.getElementById("one").innerHTML = "int i = " + numberI + ";";
-					status = 0;
-				}else if(status == 0){
 					document.getElementById("one").style.backgroundColor = "#ff6";
 					status = 1;
 					
@@ -81,7 +79,12 @@
 			}
 			function clear(){
 				status = -1;
-				document.getElementById("n1").innerHTML = "";
+				document.getElementById("n1").value = "";
+				document.getElementById("one").style.backgroundColor = "#fff";
+				document.getElementById("two").style.backgroundColor = "#fff";
+				document.getElementById("there").style.backgroundColor = "#fff";
+				document.getElementById("four").style.backgroundColor = "#fff";
+				document.getElementById("five").style.backgroundColor = "#fff";
 			}
 		</script>
 	</body>

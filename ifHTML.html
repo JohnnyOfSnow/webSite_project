@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+	
+	<body>
+	<form name=cornform>
+		<table>
+			<tr>
+				<td><p id = "one">int i = <input type=text value=0 name=n1 size="10">;</p></td><td></td>
+			</tr>
+			<tr>
+				<td><p id = "two">if(i == 3){</p></td>
+			</tr>
+			<tr>
+				<td><p id = "there">如果 i 等於 3 就執行這裡</p></td>
+			</tr>
+			<tr>
+				<td><p id = "four">}</p></td>
+			</tr>
+			<tr>
+				<td><p id = "five">if 的外面</p></td>
+			</tr>
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "next();"></td><td><input type = "button"  value = "全部清除"></td>
+			</tr>
+			<tr>
+				<td><p id = "result"></p></td>
+			</tr>
+		</table>
+	</form>
+		
+		<script>
+			var numberI = document.cornform.n1.value;
+			var status;
+			function next(){
+				document.getElementById("result").innerHTML = status +" " +numberI;
+				if(status == 0){
+					document.getElementById("one").style.backgroundColor = "#ff6";
+					status = 1;
+				}else if(status == 1){
+					document.getElementById("one").style.backgroundColor = "#fff";
+					document.getElementById("two").style.backgroundColor = "#ff6";
+					status = 2;
+					
+				}else if(status == 2){
+					if(numberI == 3){
+						document.getElementById("two").style.backgroundColor = "#fff";
+						document.getElementById("there").style.backgroundColor = "#ff6";
+						status = 3;
+					}else{
+						status = 3;
+					}
+					
+				}else if(status == 3){
+					document.getElementById("two").style.backgroundColor = "#fff";
+					document.getElementById("four").style.backgroundColor = "#ff6";
+					status = 4;
+				}else if(status == 4){
+					document.getElementById("four").style.backgroundColor = "#fff";
+					document.getElementById("five").style.backgroundColor = "#ff6";
+					status = 5;
+				}else{
+				}
+			}
+		</script>
+	</body>
+
+
+
+</html>

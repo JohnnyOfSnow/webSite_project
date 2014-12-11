@@ -23,20 +23,30 @@
 				<td><p id = "five">if 的外面</p></td>
 			</tr>
 			<tr>
-				<td><input type = "button"  value = "下一步" onClick = "next();"></td><td><input type = "button"  value = "全部清除" onClick = "clear();"></td>
+				<td><input type = "button"  value = "下一步" onClick = "next();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "clear1();"></td>
 			</tr>
 			<tr>
 				<td>請輸入一個整數值給 i</td><td><input type=text value="" id=n1 size="10"></td>
 			</tr>
-			<tr>
-				<td><p id = "result"></p></td>
-			</tr>
+			<table>
+				<tr>
+					<td><p id = "result"></p></td>
+				</tr>
+			</table>
+			
 		</table>
 	</form>
 		
 		<script>
 			
 			var status = 0;
+			var s = "宣告變數 i 為一個整數，它的值為 ";
+			var s1 = "<br>現在i 的值是不是等於3呢?";
+			var s2 = "<br>是的，i的值為3進入內部 執行裡面的敘述";
+			var s3 = "<br>不是 將要離開if";
+			var s4 = "<br>if 的末端";
+			var s5 = "<br>到 if 外面";
 			function next(){
 				var numberI = eval(document.cornform.n1.value);
 				document.getElementById("result").innerHTML = status +" " +numberI;
@@ -44,18 +54,20 @@
 					document.getElementById("one").innerHTML = "int i = " + numberI + ";";
 					document.getElementById("one").style.backgroundColor = "#ff6";
 					status = 1;
-					
+					document.getElementById("result").innerHTML = s + numberI;
 				}else if(status == 1){
 					document.getElementById("one").style.backgroundColor = "#fff";
 					document.getElementById("two").style.backgroundColor = "#ff6";
 					status = 2;
-					
+					document.getElementById("result").innerHTML = s + numberI + s1;
 				}else if(status == 2){
 					if(numberI == 3){
+						document.getElementById("result").innerHTML = s + numberI + s1 + s2;
 						document.getElementById("two").style.backgroundColor = "#fff";
 						document.getElementById("there").style.backgroundColor = "#ff6";
 						status = 3;
 					}else{
+						document.getElementById("result").innerHTML = s + numberI + s1 + s3;
 						document.getElementById("two").style.backgroundColor = "#fff";
 						document.getElementById("four").style.backgroundColor = "#ff6";
 						status = 4;
@@ -63,23 +75,32 @@
 					
 				}else if(status == 3){
 					if(numberI == 3){
+						document.getElementById("result").innerHTML = s + numberI + s1 + s2 + s4;
 						document.getElementById("there").style.backgroundColor = "#fff";
 						document.getElementById("four").style.backgroundColor = "#ff6";
 					}else{
+						document.getElementById("result").innerHTML = s + numberI + s1 + s3 + s4;
 						document.getElementById("four").style.backgroundColor = "#fff";
 						document.getElementById("five").style.backgroundColor = "#ff6";
 					}
 					status = 4;
 					
 				}else if(status == 4){
+					if(numberI == 3){
+						document.getElementById("result").innerHTML = s + numberI + s1 + s2 + s4 + s5;
+					}else{
+						document.getElementById("result").innerHTML = s + numberI + s1 + s3 + s5;
+					}
 					document.getElementById("four").style.backgroundColor = "#fff";
 					document.getElementById("five").style.backgroundColor = "#ff6";
 					status = 4;
 				}
 			}
-			function clear(){
-				status = -1;
-				document.getElementById("n1").value = "";
+			function clear1(){
+				document.getElementById("result").innerHTML = "";
+				status = 0;
+				document.getElementById("one").innerHTML = "int i;";
+				document.cornform.n1.value = "";
 				document.getElementById("one").style.backgroundColor = "#fff";
 				document.getElementById("two").style.backgroundColor = "#fff";
 				document.getElementById("there").style.backgroundColor = "#fff";

@@ -1,0 +1,474 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+
+	<body bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">新手上路</p></h5>
+			<ul>
+				<leftChoose>	
+					<li><a href = "index12.html" >環境安裝與第1個程式</a></li>
+				</leftChoose>
+			</ul>
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index0.html" >物件導向程式概說</a></li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  <a href = "index3.html" >Local vs. global</a></li>
+				<li>  <a href = "index4.html" >判斷式介紹</a></li>
+				<li>  <a href = "index5.html" >迴圈介紹</a></li>
+				<li>  <a href = "index6.html" >常見程式錯誤</a></li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index7.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index8.html" >Static vs. instance</a></li>
+				<li>  <a href = "index9.html" >Local vs. global</a></li>
+				<li>  <a href = "index10.html" >判斷式介紹</a></li>
+				<li>  <a href = "index11.html" >迴圈介紹</a></li></leftChoose>
+			</ul>
+			
+		</nav>
+		<section>
+			<h3>五、迴圈(loop)介紹</h3>
+			<blockquote>你現在已經學會如何在程式中表達判斷的敘述，現在在這裡要學到重複執行的敘述</blockquote>
+			<blockquote>迴圈，是在程式中表達重複的敘述。以下將要介紹3種迴圈</blockquote>
+			<p class="green">1.for loop</p>
+			<p class="green">2.while loop</p>
+			<p class="green">3.do-while loop</p>
+
+			<p class="demo">ㄧ、for loop</p>
+			<blockquote>語法:</blockquote>
+			<div class="pt">for(初始式;判斷式;算式){</div>
+			<div class="pt">在for loop裡面寫你想重複做的事</div>
+			<br>
+			<div class="pt">}</div>
+			<blockquote>例如：</blockquote>
+			<div class="pt">for(int count = 0; count <= 14;count = count + 1){</div>
+			<div class="pt">}</div>
+			<p class="green">在上面的例子中我們定義了一個for loop，(初始式)從0開始，每執行完1次for loop(就是從for loop的左大括弧到右大括弧之間)，將count + 1(算式)，這時會先做判斷count是不是小於等於14呢?如果是，就再做for loop的左大括弧到右大括弧的範圍內的敘述，直到，最後判斷時不符合count是不是小於等於14，才離開for loop</p>
+			<hr>
+			<div class="pt">以下是一個模擬for loop執行的操作，你需要在(請輸入一個整數值給 o)右邊的格子內輸入一個整數，接著，你可以按下ㄧ步來看如何執行，或是按下ㄧ次做完，按下全部清除將會全部清空，你就可以再使用ㄧ次。</div>
+			<hr>
+			<form name= forForm>
+		<table>
+			<tr>
+				<td><p id = "Forone">int o;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForTwo">for(int i = 0; i <= 10; i++){</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForThree">o = o + 2;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForFour">}</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForFive">for 迴圈的外面</p></td>
+			</tr>
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "forNext();"></td>
+				<td><input type = "button"  value = "一次做完" onClick = "forAll();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "forClear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 o</td><td><input type=text value="" id=n2 size="10"></td>
+			</tr>
+		</table>
+		
+		<table>
+			<tr>
+				<td><textarea name="Content" style="width:400px;height:120px;" id=forArea readonly="readonly"></textarea></td>
+			</tr>
+		</table>
+	</form>
+		
+			<p class="demo">二、while loop</p>
+			<blockquote>語法:</blockquote>
+			<div class="pt">while(判斷式){</div>
+			<div class="pt">在while loop裡面寫你想重複做的事</div>
+			<br>
+			<div class="pt">}</div>
+			<blockquote>例如：</blockquote>
+			<div class="pt">int count = 0;//(初始式)</div>
+			<div class="pt">while(count <= 14){//(判斷式)</div>
+			<div class="pt">count = count + 2;//(算式)</div>
+			<div class="pt">}</div>
+			<p class="green">在上面的例子中我們定義了一個while loop，(初始式)從0開始，一開始進入while loop，先判斷count是不是小於等於14呢?如果是，執行while loop左大括弧到右大括弧裡的敘述，當執行到右大括弧時，再判斷count是不是小於等於14呢?，如果是，就再執行while loop內部，直到count不符合(是不是小於等於14)，就離開while loop</p>
+			<hr>
+			<div class="pt">以下是一個模擬while loop執行的操作，你需要在(請輸入一個整數值給 w)右邊的格子內輸入一個整數，接著，你可以按下ㄧ步來看如何執行，或是按下ㄧ次做完，按下全部清除將會全部清空，你就可以再使用ㄧ次。</div>
+			<hr>
+			<form name= whileForm>
+			<table>
+			<tr>
+				<td><p id = "WhileOne">int w;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "WhileTwo">int count = 1;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "WhileThree">while(count <= 14){</p></td>
+			</tr>
+			<tr>
+				<td><p id = "WhileFour">w = w + 5;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "WhileFive">count = count + 1;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "WhileSix">}</p></td>
+			</tr>
+			<tr>
+				<td><p id = "WhileSeven">while 迴圈的外面</p></td>
+			</tr>
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "whileNext();"></td>
+				<td><input type = "button"  value = "一次做完" onClick = "whileAll();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "whileClear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 w</td><td><input type=text value="" id=n3 size="10"></td>
+			</tr>
+		</table>
+			<table>
+				<tr>
+					<td><textarea name="Content" style="width:400px;height:120px;" id=whileArea readonly="readonly"></textarea></td>
+				</tr>
+			</table>
+		</form>
+			<p class="demo">三、do-while loop</p>
+			<blockquote>語法:</blockquote>
+			<div class="pt">do{</div>
+			<div class="pt">在do while loop裡面寫你想重複做的事</div>
+			<br>
+			<div class="pt">}while(判斷式);</div>
+			<blockquote>例如：</blockquote>
+			<div class="pt">int count = 0;//(初始式)</div>
+			<div class="pt">do{</div>
+			<div class="pt">count = count + 2;//(算式)</div>
+			<div class="pt">}while(count <= 30);//(判斷式)</div>
+			<p class="green">在上面的例子中我們定義了一個do while loop，(初始式)從0開始</p>
+			<p id="red">第1次就直接進入do-while loop</p>
+			<p class="green">遇到迴圈最底，判斷count是不是小於等於30，如果是，再執行do while loop內部，直到count不符合(count是不是小於等於30)，就離開do while loop</p>
+			<hr>
+			<div class="pt">以下是一個模擬do-while loop執行的操作，你需要在(請輸入一個整數值給 d)右邊的格子內輸入一個整數，接著，你可以按下ㄧ步來看如何執行，或是按下ㄧ次做完，按下全部清除將會全部清空，你就可以再使用ㄧ次。</div>
+			<hr>
+			<form name= doWhileForm>
+			<table>
+			<tr>
+				<td><p id = "doWhileOne">int d;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileTwo">int count = 1;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileThree">do{</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileFour">d = d - 2;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileFive">count = count + 4;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileSix">}while(count <= 30)</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileSeven">while 迴圈的外面</p></td>
+			</tr>
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "doWhileNext();"></td>
+				<td><input type = "button"  value = "一次做完" onClick = "doWhileAll();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "doWhileClear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 d</td><td><input type=text value="" id=n4 size="10"></td>
+			</tr>
+		</table>
+			<table>
+				<tr>
+					<td><textarea name="Content" style="width:400px;height:120px;" id=doWhileArea readonly="readonly"></textarea></td>
+				</tr>
+			</table>
+		</form>
+		</section>
+		<script>
+			var forStatus = 0;
+			var forI = 0;
+			var forInit = 0;
+			var fors = "宣告變數 o 為一個整數，它的值為 ";
+			var fors1 = "\n宣告迴圈的控制變數 i，初始為0";
+			var fors2 = "\n現在 i 的值有沒有小於等於10呢?";
+			var fors3 = "\n是，將 o + 2";
+			var fors4 = "\n現在將進行 i++ 現在 i為";
+			var fors5 = "\n不是，離開for 迴圈";
+			var forConnectString = "";
+			var forO;
+			function forNext(){
+				var forUserInput = eval(document.forForm.n2.value);
+				//document.getElementById("forArea").innerHTML = forUserInput;
+				if(forStatus == 0){
+					forO = forUserInput;
+					document.getElementById("Forone").innerHTML = "int o = " + forUserInput + ";";
+					forConnectString = forConnectString + fors + forUserInput;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					document.getElementById("Forone").style.backgroundColor = "#ff6";
+					forStatus = 1;
+				}else if(forStatus == 1){
+					forConnectString = forConnectString + fors1;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					document.getElementById("Forone").style.backgroundColor = "#fff";
+					document.getElementById("ForFive").style.backgroundColor = "#fff";
+					document.getElementById("ForTwo").style.backgroundColor = "#ff6";
+					forStatus = 2;
+				}else if(forStatus == 2){
+					document.getElementById("ForFour").style.backgroundColor = "#fff";
+					document.getElementById("ForTwo").style.backgroundColor = "#ff6";
+					forConnectString = forConnectString + fors2;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					if(forI <= 10){
+						forStatus = 3;
+					}else{
+						forStatus = 5;
+					}
+				}else if(forStatus == 3){
+					document.getElementById("ForTwo").style.backgroundColor = "#fff";
+					document.getElementById("ForThree").style.backgroundColor = "#ff6";
+					forO = forO + 2;
+					forConnectString = forConnectString + fors3 + "現在 o 為" + forO;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					forStatus = 4;
+				}else if(forStatus == 4){
+					document.getElementById("ForThree").style.backgroundColor = "#fff";
+					document.getElementById("ForFour").style.backgroundColor = "#ff6";
+					forI = forI + 1;
+					forConnectString = forConnectString + fors4 + forI;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					forStatus = 2;
+				}else if(forStatus == 5){
+					document.getElementById("ForTwo").style.backgroundColor = "#fff";
+					document.getElementById("ForFive").style.backgroundColor = "#ff6";
+					forConnectString = forConnectString + fors5;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					forStatus = 6;
+				}else{
+				
+				}
+			}// end function
+			
+			function forClear(){
+				document.getElementById("Forone").innerHTML = "int o;";
+				document.getElementById("forArea").innerHTML = "";
+				document.forForm.n2.value = "";
+				document.getElementById("Forone").style.backgroundColor = "#fff";
+				document.getElementById("ForTwo").style.backgroundColor = "#fff";
+				document.getElementById("ForThree").style.backgroundColor = "#fff";
+				document.getElementById("ForFour").style.backgroundColor = "#fff";
+				document.getElementById("ForFive").style.backgroundColor = "#fff";
+				forStatus = 0;
+				forI = 0;
+				forO = 0;
+				forConnectString = "";
+			}
+			
+			function forAll(){
+				var forUserInput = eval(document.forForm.n2.value);
+				while(forStatus != 6){
+					forNext();
+				}
+			}
+			var whileStatus = 0;
+			var whileCount = 1;
+			var whiles = "宣告變數 w 為一個整數，它的值為 ";
+			var whiles1 = "\n宣告變數 count 為一個整數，它的值為 1";
+			var whiles2 = "\n現在 count 的值有沒有小於等於14呢?";
+			var whiles3 = "\n是，將 w + 5 ，現在 w 的值為 ";
+			var whiles4 = "\n將 count + 1 現在 count 的值為 ";
+			var whiles5 = "\n不是，離開while 迴圈";
+			var whileConnectString = "";
+			var whileW;
+			function whileNext(){
+				var whileUserInput = eval(document.whileForm.n3.value);
+				
+				//document.getElementById("whileArea").innerHTML = forUserInput;
+				if(whileStatus == 0){
+					document.getElementById("WhileOne").innerHTML = "int w = " + whileUserInput + ";";
+					document.getElementById("WhileOne").style.backgroundColor = "#ff6";
+					whileW = whileUserInput;
+					whileConnectString = whileConnectString + whiles + whileUserInput;
+					document.getElementById("whileArea").innerHTML = whileConnectString;
+					whileStatus = 1;
+				}else if(whileStatus == 1){
+					document.getElementById("WhileOne").style.backgroundColor = "#fff";
+					document.getElementById("WhileTwo").style.backgroundColor = "#ff6";
+					whileConnectString = whileConnectString + whiles1;
+					document.getElementById("whileArea").innerHTML = whileConnectString;
+					whileStatus = 2;
+				}else if(whileStatus == 2){
+					document.getElementById("WhileFive").style.backgroundColor = "#fff";
+					document.getElementById("WhileTwo").style.backgroundColor = "#fff";
+					document.getElementById("WhileThree").style.backgroundColor = "#ff6";
+					whileConnectString = whileConnectString + whiles2;
+					document.getElementById("whileArea").innerHTML = whileConnectString;
+					if(whileCount <= 14){
+						whileStatus = 3;
+					}else{
+						whileStatus = 5;
+					}
+				}else if(whileStatus == 3){
+					document.getElementById("WhileThree").style.backgroundColor = "#fff";
+					document.getElementById("WhileFour").style.backgroundColor = "#ff6";
+					whileW = whileW + 5;
+					whileConnectString = whileConnectString + whiles3 + whileW;
+					document.getElementById("whileArea").innerHTML = whileConnectString;
+					whileStatus = 4;
+				}else if(whileStatus == 4){
+					document.getElementById("WhileFour").style.backgroundColor = "#fff";
+					document.getElementById("WhileFive").style.backgroundColor = "#ff6";
+					whileCount = whileCount + 1;
+					whileConnectString = whileConnectString + whiles4 + whileCount;
+					document.getElementById("whileArea").innerHTML = whileConnectString;
+					whileStatus = 2;
+				}else if(whileStatus == 5){
+					document.getElementById("WhileThree").style.backgroundColor = "#fff";
+					document.getElementById("WhileSeven").style.backgroundColor = "#ff6";
+					whileConnectString = whileConnectString + whiles5;
+					document.getElementById("whileArea").innerHTML = whileConnectString;
+					whileStatus = 6;
+				}else{
+				
+				}
+			}// end function
+			
+			function whileClear(){
+				document.getElementById("WhileOne").style.backgroundColor = "#fff";
+				document.getElementById("WhileTwo").style.backgroundColor = "#fff";
+				document.getElementById("WhileThree").style.backgroundColor = "#fff";
+				document.getElementById("WhileFour").style.backgroundColor = "#fff";
+				document.getElementById("WhileFive").style.backgroundColor = "#fff";
+				document.getElementById("WhileSix").style.backgroundColor = "#fff";
+				document.getElementById("WhileSeven").style.backgroundColor = "#fff";
+				whileStatus = 0;
+				whileCount = 1;
+				whileConnectString = "";
+				document.getElementById("WhileOne").innerHTML = "int w;";
+				document.getElementById("whileArea").innerHTML = "";
+				document.whileForm.n3.value = "";
+			}
+			
+			function whileAll(){
+				var whileUserInput = eval(document.whileForm.n3.value);
+				while(whileStatus != 6){
+					whileNext();
+				}
+			}
+			var doWhileStatus = 0;
+			var doWhileCount = 1;
+			var doWhiles = "宣告變數 d 為一個整數，它的值為 ";
+			var doWhiles1 = "\n宣告變數 count 為一個整數，它的值為 1";
+			var doWhiles2 = "\n現在開始進入do while";
+			var doWhiles3 = "\n將 d - 2 ，現在 d 的值為 ";
+			var doWhiles4 = "\n將 count + 4 現在 count 的值為 ";
+			var doWhiles5 = "\n現在 count 是不是小於等於30呢?";
+			var doWhiles6 = "\n是";
+			var doWhiles7 = "\n不是，離開do while 迴圈";
+			var doWhileConnectString = "";
+			var doWhileD;
+			
+			function doWhileNext(){
+				var doWhileUserInput = eval(document.doWhileForm.n4.value);
+				
+				//document.getElementById("doWhileArea").innerHTML = doWhileUserInput;
+				if(doWhileStatus == 0){
+					document.getElementById("doWhileOne").innerHTML = "int d = " + doWhileUserInput + ";";
+					document.getElementById("doWhileOne").style.backgroundColor = "#ff6";
+					doWhileD = doWhileUserInput;
+					doWhileConnectString = doWhileConnectString + doWhiles + doWhileUserInput;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 1;
+				}else if(doWhileStatus == 1){
+					document.getElementById("doWhileOne").style.backgroundColor = "#fff";
+					document.getElementById("doWhileTwo").style.backgroundColor = "#ff6";
+					doWhileConnectString = doWhileConnectString + doWhiles1;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 2;
+				}else if(doWhileStatus == 2){
+					document.getElementById("doWhileTwo").style.backgroundColor = "#fff";
+					document.getElementById("doWhileThree").style.backgroundColor = "#ff6";
+					doWhileConnectString = doWhileConnectString + doWhiles2;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 3;
+				}else if(doWhileStatus == 3){
+					document.getElementById("doWhileSix").style.backgroundColor = "#fff";
+					document.getElementById("doWhileThree").style.backgroundColor = "#fff";
+					document.getElementById("doWhileFour").style.backgroundColor = "#ff6";
+					doWhileD = doWhileD - 2;
+					doWhileConnectString = doWhileConnectString + doWhiles3 + doWhileD;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 4;
+				}else if(doWhileStatus == 4){
+					document.getElementById("doWhileFour").style.backgroundColor = "#fff";
+					document.getElementById("doWhileFive").style.backgroundColor = "#ff6";
+					doWhileCount = doWhileCount + 4;
+					doWhileConnectString = doWhileConnectString + doWhiles4 + doWhileCount;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 5;
+				}else if(doWhileStatus == 5){
+					document.getElementById("doWhileFive").style.backgroundColor = "#fff";
+					document.getElementById("doWhileSix").style.backgroundColor = "#ff6";
+					doWhileConnectString = doWhileConnectString + doWhiles5;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 6;
+				}else if(doWhileStatus == 6){
+					
+					if(doWhileCount <= 30){
+						
+						doWhileConnectString = doWhileConnectString + doWhiles6;
+						document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+						doWhileStatus = 3;
+					}else{
+						document.getElementById("doWhileSix").style.backgroundColor = "#fff";
+						document.getElementById("doWhileSeven").style.backgroundColor = "#ff6";
+						doWhileConnectString = doWhileConnectString + doWhiles7;
+						document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+						doWhileStatus = 7;
+					}
+				}else{
+				
+				}
+			}// end function
+			
+			function doWhileAll(){
+				var doWhileUserInput = eval(document.doWhileForm.n4.value);
+				while(doWhileStatus != 7){
+					doWhileNext();
+				}
+			}
+			
+			function doWhileClear(){
+				document.getElementById("doWhileOne").style.backgroundColor = "#fff";
+				document.getElementById("doWhileTwo").style.backgroundColor = "#fff";
+				document.getElementById("doWhileThree").style.backgroundColor = "#fff";
+				document.getElementById("doWhileFour").style.backgroundColor = "#fff";
+				document.getElementById("doWhileFive").style.backgroundColor = "#fff";
+				document.getElementById("doWhileSix").style.backgroundColor = "#fff";
+				document.getElementById("doWhileSeven").style.backgroundColor = "#fff";
+				document.doWhileForm.n4.value = "";
+				doWhileStatus = 0;
+				doWhileCount = 1;
+				doWhileConnectString = "";
+				document.getElementById("doWhileArea").innerHTML = "";
+				document.getElementById("doWhileOne").innerHTML = "int d;";
+			}
+		</script>
+	</body>
+</html>

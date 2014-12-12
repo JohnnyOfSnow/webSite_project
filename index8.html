@@ -38,6 +38,7 @@
 		</nav>
 
 		<section>
+			<h3>Static vs Instance 測驗</h3>
 			<p id="no">第 <font color="red">1</font>題</p>
 			<span id="prob1">關於建構函式的敘述，下列哪個錯誤?</span>
 			<input type="radio" name="p1" value="1" onclick="userreply=1;" selected=""><span id="item1">1.建構函式需與類別名稱相同</span>&nbsp;
@@ -116,7 +117,7 @@ function checkans()
     realno++; //next question No.
 	var x = "";
 	for(var i = 0;i<realno;i++){
-	x = x+"<img src=SQUARE.jpg width = 50 length = 50>";
+	x = x+"<img src=image/SQUARE.jpg width = 50 length = 50>";
     }
 	document.getElementById('reward').innerHTML=  x + "已答 "+ realno + "題/ " + " 還有 "+ total + " 題";
    }

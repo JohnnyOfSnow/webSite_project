@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	
+	</head>
+	
+	<body>
+		<form name= doWhileForm>
+			<table>
+			<tr>
+				<td><p id = "doWhileOne">int d;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileTwo">int count = 1;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileThree">do{</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileFour">d = d - 2;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileFive">count = count + 4;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileSix">}while(count <= 30)</p></td>
+			</tr>
+			<tr>
+				<td><p id = "doWhileSeven">while 迴圈的外面</p></td>
+			</tr>
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "doWhileNext();"></td>
+				<td><input type = "button"  value = "一次做完" onClick = "doWhileAll();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "doWhileClear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 d</td><td><input type=text value="" id=n4 size="10"></td>
+			</tr>
+		</table>
+			<table>
+				<tr>
+					<td><textarea name="Content" style="width:400px;height:120px;" id=doWhileArea readonly="readonly"></textarea></td>
+				</tr>
+			</table>
+		</form>
+		
+		<script>
+			var doWhileStatus = 0;
+			var doWhileCount = 1;
+			var doWhiles = "宣告變數 d 為一個整數，它的值為 ";
+			var doWhiles1 = "\n宣告變數 count 為一個整數，它的值為 1";
+			var doWhiles2 = "\n現在開始進入do while";
+			var doWhiles3 = "\n將 d - 2 ，現在 d 的值為 ";
+			var doWhiles4 = "\n將 count + 4 現在 count 的值為 ";
+			var doWhiles5 = "\n現在 count 是不是小於等於30呢?";
+			var doWhiles6 = "\n是";
+			var doWhiles7 = "\n不是，離開do while 迴圈";
+			var doWhileConnectString = "";
+			var doWhileD;
+			
+			function doWhileNext(){
+				var doWhileUserInput = eval(document.doWhileForm.n4.value);
+				
+				//document.getElementById("doWhileArea").innerHTML = doWhileUserInput;
+				if(doWhileStatus == 0){
+					document.getElementById("doWhileOne").innerHTML = "int d = " + doWhileUserInput + ";";
+					document.getElementById("doWhileOne").style.backgroundColor = "#ff6";
+					doWhileD = doWhileUserInput;
+					doWhileConnectString = doWhileConnectString + doWhiles + doWhileUserInput;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 1;
+				}else if(doWhileStatus == 1){
+					document.getElementById("doWhileOne").style.backgroundColor = "#fff";
+					document.getElementById("doWhileTwo").style.backgroundColor = "#ff6";
+					doWhileConnectString = doWhileConnectString + doWhiles1;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 2;
+				}else if(doWhileStatus == 2){
+					document.getElementById("doWhileTwo").style.backgroundColor = "#fff";
+					document.getElementById("doWhileThree").style.backgroundColor = "#ff6";
+					doWhileConnectString = doWhileConnectString + doWhiles2;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 3;
+				}else if(doWhileStatus == 3){
+					document.getElementById("doWhileSix").style.backgroundColor = "#fff";
+					document.getElementById("doWhileThree").style.backgroundColor = "#fff";
+					document.getElementById("doWhileFour").style.backgroundColor = "#ff6";
+					doWhileD = doWhileD - 2;
+					doWhileConnectString = doWhileConnectString + doWhiles3 + doWhileD;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 4;
+				}else if(doWhileStatus == 4){
+					document.getElementById("doWhileFour").style.backgroundColor = "#fff";
+					document.getElementById("doWhileFive").style.backgroundColor = "#ff6";
+					doWhileCount = doWhileCount + 4;
+					doWhileConnectString = doWhileConnectString + doWhiles4 + doWhileCount;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 5;
+				}else if(doWhileStatus == 5){
+					document.getElementById("doWhileFive").style.backgroundColor = "#fff";
+					document.getElementById("doWhileSix").style.backgroundColor = "#ff6";
+					doWhileConnectString = doWhileConnectString + doWhiles5;
+					document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+					doWhileStatus = 6;
+				}else if(doWhileStatus == 6){
+					
+					if(doWhileCount <= 30){
+						
+						doWhileConnectString = doWhileConnectString + doWhiles6;
+						document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+						doWhileStatus = 3;
+					}else{
+						document.getElementById("doWhileSix").style.backgroundColor = "#fff";
+						document.getElementById("doWhileSeven").style.backgroundColor = "#ff6";
+						doWhileConnectString = doWhileConnectString + doWhiles7;
+						document.getElementById("doWhileArea").innerHTML = doWhileConnectString;
+						doWhileStatus = 7;
+					}
+				}else{
+				
+				}
+			}// end function
+			
+			function doWhileAll(){
+				var doWhileUserInput = eval(document.doWhileForm.n4.value);
+				while(doWhileStatus != 7){
+					doWhileNext();
+				}
+			}
+			
+			function doWhileClear(){
+				document.getElementById("doWhileOne").style.backgroundColor = "#fff";
+				document.getElementById("doWhileTwo").style.backgroundColor = "#fff";
+				document.getElementById("doWhileThree").style.backgroundColor = "#fff";
+				document.getElementById("doWhileFour").style.backgroundColor = "#fff";
+				document.getElementById("doWhileFive").style.backgroundColor = "#fff";
+				document.getElementById("doWhileSix").style.backgroundColor = "#fff";
+				document.getElementById("doWhileSeven").style.backgroundColor = "#fff";
+				document.doWhileForm.n4.value = "";
+				doWhileStatus = 0;
+				doWhileCount = 1;
+				doWhileConnectString = "";
+				document.getElementById("doWhileArea").innerHTML = "";
+			}
+		
+		</script>
+	</body>
+	
+	
+</html>

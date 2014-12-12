@@ -1,0 +1,69 @@
+下面的迴圈執行完後，o的值為何?
+int o = 3;
+for(int i = 0; i <= 10; i++){
+	o = o + 2;
+}
+System.out.println("o value is: " + o);
+
+	1. 23
+	2. 25
+	3. 27
+	4. 21
+
+下面的迴圈執行完後，w的值為何?
+int w = 4;
+int count = 1;
+while(count <= 14){
+	w = w + 5;
+	count = count + 3;
+}
+System.out.println("w value is: " + w);
+	
+	1. 29
+	2. 34
+	3. 24
+	4. 39
+
+
+下面的迴圈執行完後，d的值為何?
+int d = 4;
+int count = 1;
+do{
+	count = count + 4;
+	d = d - 2;
+
+}while(count <= 30)
+
+System.out.println("d value is: " + d);
+	
+	1. -10
+	2. -12
+	3. -14
+	4. -8
+
+看下面的迴圈，i++會做幾次，int i = 0會做幾次？
+int o = 3;
+for(int i = 0; i <= 10; i++){
+	o = o + 2;
+}
+System.out.println("o value is: " + o);	
+
+	1. i++做12次，int i = 0做1次
+	2. i++做11次，int i = 0做11次
+	3. i++做11次，int i = 0做1次
+	4. i++做12次，int i = 0做11次
+
+看下面的迴圈，選出適合的選項
+int d = 4;
+int count = 1;
+do{
+	count = count + 4;
+	d = d - 2;
+
+}while(count >= 0)	
+System.out.println("d value is: " + d);
+
+	1.最後會印出d的值，d = 4
+	2.這個程式有語法的錯誤
+	3.這個程式會ㄧ直執行不會停
+	4.最後會印出d的值，d = -12

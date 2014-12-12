@@ -96,14 +96,14 @@ function checkans()
    {
     switch(times){
 	case 0:
-		sc+=5;
+		sc+=20;
 		good24 = good24 + 1;
 	break;
 	case 1:
-		sc+=3;
+		sc+=10;
 	break;
 	case 2:
-		sc+=1;
+		sc+=5;
 	break;
 	default:
 		sc+=0;	
@@ -118,7 +118,7 @@ function checkans()
 	for(var i = 0;i<realno;i++){
 	x = x+"<img src=SQUARE.jpg width = 50 length = 50>";
     }
-	document.getElementById('reward').innerHTML=x +realno + "/ " + total;
+	document.getElementById('reward').innerHTML=  x + "已答 "+ realno + "題/ " + " 還有 "+ total + " 題";
    }
   else{
     feed="答錯!!";

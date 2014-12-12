@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+	
+	<body>
+	<form name= forForm>
+		<table>
+			<tr>
+				<td><p id = "Forone">int o;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForTwo">for(int i = 0; i <= 10; i++){</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForThree">o = o + 2;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForFour">}</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ForFive">for 迴圈的外面</p></td>
+			</tr>
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "forNext();"></td>
+				<td><input type = "button"  value = "一次做完" onClick = "forAll();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "forClear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 o</td><td><input type=text value="" id=n2 size="10"></td>
+			</tr>
+		</table>
+		
+		<table>
+			<tr>
+				<td><textarea name="Content" style="width:400px;height:120px;" id=forArea readonly="readonly"></textarea></td>
+			</tr>
+		</table>
+	</form>
+		<script>
+			var forStatus = 0;
+			var forI = 0;
+			var forInit = 0;
+			var fors = "宣告變數 o 為一個整數，它的值為 ";
+			var fors1 = "\n宣告迴圈的控制變數 i，初始為0";
+			var fors2 = "\n現在 i 的值有沒有小於等於10呢?";
+			var fors3 = "\n是，將 o + 2";
+			var fors4 = "\n現在將進行 i++";
+			var fors5 = "\n不是，離開for 迴圈";
+			var forConnectString = "";
+			var forO;
+			function forNext(){
+				var forUserInput = eval(document.forForm.n2.value);
+				
+				//document.getElementById("forArea").innerHTML = forUserInput;
+				if(forStatus == 0){
+					forO = forUserInput;
+					document.getElementById("Forone").innerHTML = "int o = " + forUserInput + ";";
+					forConnectString = forConnectString + fors + forUserInput;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					document.getElementById("Forone").style.backgroundColor = "#ff6";
+					forStatus = 1;
+				}else if(forStatus == 1){
+					forConnectString = forConnectString + fors1;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					document.getElementById("Forone").style.backgroundColor = "#fff";
+					document.getElementById("ForFive").style.backgroundColor = "#fff";
+					document.getElementById("ForTwo").style.backgroundColor = "#ff6";
+					forStatus = 2;
+				}else if(forStatus == 2){
+					document.getElementById("ForFour").style.backgroundColor = "#fff";
+					document.getElementById("ForTwo").style.backgroundColor = "#ff6";
+					forConnectString = forConnectString + fors2;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					if(forI <= 10){
+						forStatus = 3;
+					}else{
+						forStatus = 5;
+					}
+				}else if(forStatus == 3){
+					document.getElementById("ForTwo").style.backgroundColor = "#fff";
+					document.getElementById("ForThree").style.backgroundColor = "#ff6";
+					forO = forO + 2;
+					forConnectString = forConnectString + fors3 + "現在 o 為" + forO;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					forStatus = 4;
+				}else if(forStatus == 4){
+					document.getElementById("ForThree").style.backgroundColor = "#fff";
+					document.getElementById("ForFour").style.backgroundColor = "#ff6";
+					forConnectString = forConnectString + fors4;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					forI = forI + 1;
+					forStatus = 2;
+				}else if(forStatus == 5){
+					document.getElementById("ForTwo").style.backgroundColor = "#fff";
+					document.getElementById("ForFive").style.backgroundColor = "#ff6";
+					forConnectString = forConnectString + fors5;
+					document.getElementById("forArea").innerHTML = forConnectString;
+					forStatus = 6;
+				}else{
+				
+				}
+			}// end function
+			
+			function forClear(){
+				document.getElementById("Forone").innerHTML = "int o;";
+				document.getElementById("forArea").innerHTML = "";
+				document.forForm.n2.value = "";
+				document.getElementById("Forone").style.backgroundColor = "#fff";
+				document.getElementById("ForTwo").style.backgroundColor = "#fff";
+				document.getElementById("ForThree").style.backgroundColor = "#fff";
+				document.getElementById("ForFour").style.backgroundColor = "#fff";
+				document.getElementById("ForFive").style.backgroundColor = "#fff";
+				forStatus = 0;
+				forI = 0;
+				forO = 0;
+				forConnectString = "";
+			}
+			
+			function forAll(){
+				var forUserInput = eval(document.forForm.n2.value);
+				while(forStatus != 6){
+					forNext();
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+<body  bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">新手上路</p></h5>
+			<ul>
+				<leftChoose>	
+					<li><a href = "index12.html" >環境安裝與第1個程式</a></li>
+				</leftChoose>
+			</ul> 
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index0.html" >物件導向程式概說</a></li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  <a href = "index3.html" >Local vs. global</a></li>
+				<li>  <a href = "index4.html" >判斷式介紹</a></li>
+				<li>  <a href = "index5.html" >迴圈介紹</a></li>
+				<li>  <a href = "index6.html" >常見程式錯誤</a></li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index7.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index8.html" >Static vs. instance</a></li>
+				<li>  <a href = "index9.html" >Local vs. global</a></li>
+				<li>  <a href = "index10.html" >判斷式介紹</a></li>
+				<li>  <a href = "index11.html" >迴圈介紹</a></li></leftChoose>
+			</ul>
+			
+		</nav>
+
+		<section>
+			<h3>定義類別、變數以及方法 測驗</h3>
+			<p id="no">第 <font color="red">1</font>題</p>
+			<span id="prob1">區別一個物件需要它的動作和特徵，下列哪2者為在class裡表示動作和特徵?</span>
+			<input type="radio" name="p1" value="1" onclick="userreply=1;" selected=""><span id="item1">1.method variable</span>&nbsp;
+			<input type="radio" name="p1" value="2" onclick="userreply=2;"><span id="item2">2.variale constructor</span>&nbsp;
+			<input type="radio" name="p1" value="3" onclick="userreply=3;"><span id="item3">3.method constructor</span>&nbsp;
+			<input type="radio" name="p1" value="4" onclick="userreply=4;"><span id="item4">4.constructor object</span>&nbsp;<br>
+			<br>
+			<button id="Check" onclick="checkans();">Check answer</button>
+			<button id="next" onclick="nextqest();"> 下一題</button>
+			<p id="report"></p>
+			<p id="reward"></p>
+			<p id="enhance"></p>
+		</section>
+		<script>
+			var itempool='';
+			itempool="區別一個物件需要它的動作和特徵，下列哪2者為在class裡表示動作和特徵?<br>,1.method variable<br>,2.variale constructor<br>,3.method constructor<br>,4.constructor object,<br>";
+
+itempool+="如何定義一個類別?<br>,1.name class{}<br>,2.class name{}<br>,3.class name(int a){}<br>,4.name class(int a){},<br>";
+
+itempool+="下列何者為整數資料型態?<br>,1.double,2.float,3.char,4.int,<br>";
+
+itempool+="下列何者為字元陣列資料型態?<br>,1.double[],2.char[],3.int[],4.float[],<br>";
+
+itempool+="下列定義方法和者正確?<br>,1.get(int a){}<br>,2.get int(a){}<br>,3.int get(int a){}<br>,4.int get{}<br>";
+
+
+
+var quest=new Array();
+var ans = new Array(1,2,4,2,3);//new can be omitted
+var re1 = new Array(0,0,0,0,0);
+var re2 = new Array("1.<br>,method表示動作 variable表示特性<hr><br>",
+"2.<br>class class的名稱{}<hr><br>",
+"3.<br>整數資料型態為int<hr><br>",
+"4.<br>字元陣列資料型態char[]<hr><br>",
+"5.<br>資料型態 方法名稱(傳入變數){}")
+quest=itempool.split(",");
+total=quest.length/5;
+
+var realno=0;
+var userreply=0, sc=0;
+var repeat=0;
+var feed="";
+var times = 0;
+var good24 = 0;
+function checkans()
+{
+ if (repeat==0) {
+  if (userreply==ans[realno])
+   {
+    switch(times){
+	case 0:
+		sc+=20;
+		good24 = good24 + 1;
+	break;
+	case 1:
+		sc+=10;
+	break;
+	case 2:
+		sc+=5;
+	break;
+	default:
+		sc+=0;	
+    }
+
+    feed="答對!!";
+    re1[realno] = times;
+    times = 0;
+    repeat=1;//avoid answering repeatedly
+    realno++; //next question No.
+	var x = "";
+	for(var i = 0;i<realno;i++){
+	x = x+"<img src=image/SQUARE.jpg width = 50 length = 50>";
+    }
+	document.getElementById('reward').innerHTML=  x + "已答 "+ realno + "題/ " + " 還有 "+ total + " 題";
+   }
+  else{
+    feed="答錯!!";
+    times++;
+  }
+  
+ }
+ document.getElementById('report').innerHTML=feed+"your score is <font color=red>"+sc+"</font>";
+}
+function nextqest()
+{
+	if (realno<total)
+	{
+		var audioElm = document.getElementById("audio1");
+		
+		repeat=0;
+		document.getElementById('no').innerHTML="第 <font color=red>"+eval(realno+1)+"</font>題";
+		var problem=document.getElementById('prob1');
+		problem.innerHTML=quest[eval(realno*5+0)];
+		var item1=document.getElementById('item1');
+		item1.innerHTML=quest[eval(realno*5+1)];
+		var item2=document.getElementById('item2');
+		item2.innerHTML=quest[eval(realno*5+2)];
+		var item3=document.getElementById('item3');
+		item3.innerHTML=quest[eval(realno*5+3)];
+		var item4=document.getElementById('item4');
+		item4.innerHTML=quest[eval(realno*5+4)];
+		
+	}
+	else{
+		var j = 0;
+		var i = "觀念導正:<br>";
+		
+		for(j = 0; j < re1.length; j++){
+			if(re1[j] > 1){
+				i = i + re2[j];
+			}
+		}
+		document.getElementById('enhance').innerHTML=i;
+		
+	}
+}
+window.onload=function (){
+nextqest();
+}
+</script>
+		<footer>
+			<a href = "weclome.html" target="content"><p class="white">return to index</p></a>
+		</footer>
+
+
+	</body>
+
+</html>

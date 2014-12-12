@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+<body  bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">新手上路</p></h5>
+			<ul>
+				<leftChoose>	
+					<li><a href = "index12.html" >環境安裝與第1個程式</a></li>
+				</leftChoose>
+			</ul>
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index0.html" >物件導向程式概說</a></li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  <a href = "index3.html" >Local vs. global</a></li>
+				<li>  <a href = "index4.html" >判斷式介紹</a></li>
+				<li>  <a href = "index5.html" >迴圈介紹</a></li>
+				<li>  <a href = "index6.html" >常見程式錯誤</a></li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index7.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index8.html" >Static vs. instance</a></li>
+				<li>  <a href = "index9.html" >Local vs. global</a></li>
+				<li>  <a href = "index10.html" >判斷式介紹</a></li>
+				<li>  <a href = "index11.html" >迴圈介紹</a></li></leftChoose>
+			</ul>
+			
+		</nav>
+
+		<section>
+			<h3>Local vs. global 測驗</h3>
+			<p id="no">第 <font color="red">1</font>題</p>
+			<span id="prob1">下列哪個變數是global variable?</span>
+			<input type="radio" name="p1" value="1" onclick="userreply=1;" selected=""><span id="item1">1. take</span>&nbsp;
+			<input type="radio" name="p1" value="2" onclick="userreply=2;"><span id="item2">2. number</span>&nbsp;
+			<input type="radio" name="p1" value="3" onclick="userreply=3;"><span id="item3">3. time</span>&nbsp;
+			<input type="radio" name="p1" value="4" onclick="userreply=4;"><span id="item4">4. peelColor</span>&nbsp;<br>
+			<br>
+			<button id="Check" onclick="checkans();">Check answer</button>
+			<button id="next" onclick="nextqest();"> 下一題</button>
+			<p id="report"></p>
+			<p id="reward"></p>
+			<p id="enhance"></p>
+		</section>
+		<script>
+			var itempool='';
+			itempool="下列哪個變數是global variable?<br><img src=image/3-1.jpg><br>,1. take,2. number,3. time,4. peelColor,<br>";
+
+itempool+="下列哪個變數是local variable?<br><img src=image/3-2.jpg><br>,1. green,2. false,3. eat,4. time,<br>";
+
+itempool+="請問2個method所印出的顏色為何?<br><img src=image/3-3.jpg><br>,1.green green,2.green false,3.false green,4.false false,<br>";
+
+itempool+="變數範圍的英文名為下列何者?<br>,1.variable of scale,2.variable of time,3.variable of scope,4.variable of weith,<br>";
+
+itempool+="global variable其值是否會隨著被method使用而改變?<br>,1.會,2.不會,3.變數為instance才會,4.變數不為instance才會";
+
+
+
+var quest=new Array();
+var ans = new Array(4,4,1,3,1);//new can be omitted
+var re1 = new Array(0,0,0,0,0);
+var re2 = new Array("1.<br>peelcolor宣告在最外層，他所存在的範圍為整個class<hr><br>",
+"2.<br>time為eat此method的local variable所以作用範圍只在eat method裡面<hr><br>",
+"3.<br>peelcolor為global variable故不會會改變<hr><br>",
+"4.<br>variable of scope<hr><br>",
+"5.<br>global variable會被method所使用而改變其值")
+quest=itempool.split(",");
+total=quest.length/5;
+
+var realno=0;
+var userreply=0, sc=0;
+var repeat=0;
+var feed="";
+var times = 0;
+var good24 = 0;
+function checkans()
+{
+ if (repeat==0) {
+  if (userreply==ans[realno])
+   {
+    switch(times){
+	case 0:
+		sc+=20;
+		good24 = good24 + 1;
+	break;
+	case 1:
+		sc+=10;
+	break;
+	case 2:
+		sc+=5;
+	break;
+	default:
+		sc+=0;	
+    }
+
+    feed="答對!!";
+    re1[realno] = times;
+    times = 0;
+    repeat=1;//avoid answering repeatedly
+    realno++; //next question No.
+	var x = "";
+	for(var i = 0;i<realno;i++){
+	x = x+"<img src=image/SQUARE.jpg width = 50 length = 50>";
+    }
+	document.getElementById('reward').innerHTML=  x + "已答 "+ realno + "題/ " + " 還有 "+ total + " 題";
+   }
+  else{
+    feed="答錯!!";
+    times++;
+  }
+  
+ }
+ document.getElementById('report').innerHTML=feed+"your score is <font color=red>"+sc+"</font>";
+}
+function nextqest()
+{
+	if (realno<total)
+	{
+		var audioElm = document.getElementById("audio1");
+		
+		repeat=0;
+		document.getElementById('no').innerHTML="第 <font color=red>"+eval(realno+1)+"</font>題";
+		var problem=document.getElementById('prob1');
+		problem.innerHTML=quest[eval(realno*5+0)];
+		var item1=document.getElementById('item1');
+		item1.innerHTML=quest[eval(realno*5+1)];
+		var item2=document.getElementById('item2');
+		item2.innerHTML=quest[eval(realno*5+2)];
+		var item3=document.getElementById('item3');
+		item3.innerHTML=quest[eval(realno*5+3)];
+		var item4=document.getElementById('item4');
+		item4.innerHTML=quest[eval(realno*5+4)];
+		
+	}
+	else{
+		var j = 0;
+		var i = "觀念導正:<br>";
+		
+		for(j = 0; j < re1.length; j++){
+			if(re1[j] > 1){
+				i = i + re2[j];
+			}
+		}
+		document.getElementById('enhance').innerHTML=i;
+		
+	}
+}
+window.onload=function (){
+nextqest();
+}
+</script>
+		<footer>
+			<a href = "weclome.html" target="content"><p class="white">return to index</p></a>
+		</footer>
+
+
+	</body>
+
+</html>

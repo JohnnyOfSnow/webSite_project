@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+<body  bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">新手上路</p></h5>
+			<ul>
+				<leftChoose>	
+					<li><a href = "index12.html" >環境安裝與第1個程式</a></li>
+				</leftChoose>
+			</ul>
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index0.html" >物件導向程式概說</a></li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  <a href = "index3.html" >Local vs. global</a></li>
+				<li>  <a href = "index4.html" >判斷式介紹</a></li>
+				<li>  <a href = "index5.html" >迴圈介紹</a></li>
+				<li>  <a href = "index6.html" >常見程式錯誤</a></li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index7.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index8.html" >Static vs. instance</a></li>
+				<li>  <a href = "index9.html" >Local vs. global</a></li>
+				<li>  <a href = "index10.html" >判斷式介紹</a></li>
+				<li>  <a href = "index11.html" >迴圈介紹</a></li></leftChoose>
+			</ul>
+			
+		</nav>
+
+		<section>
+			<h3>迴圈介紹 測驗</h3>
+			<p id="no">第 <font color="red">1</font>題</p>
+			<span id="prob1"><img src=image/5-1.jpg>下面的迴圈執行完後，o的值為何?</span>
+			<input type="radio" name="p1" value="1" onclick="userreply=1;" selected=""><span id="item1">1. 23</span>&nbsp;
+			<input type="radio" name="p1" value="2" onclick="userreply=2;"><span id="item2">2. 25</span>&nbsp;
+			<input type="radio" name="p1" value="3" onclick="userreply=3;"><span id="item3">3. 27</span>&nbsp;
+			<input type="radio" name="p1" value="4" onclick="userreply=4;"><span id="item4">4. 21</span>&nbsp;<br>
+			<br>
+			<button id="Check" onclick="checkans();">Check answer</button>
+			<button id="next" onclick="nextqest();"> 下一題</button>
+			<p id="report"></p>
+			<p id="reward"></p>
+			<p id="enhance"></p>
+		</section>
+		<script>
+			var itempool='';
+			itempool="下面的迴圈執行完後，o的值為何?<br><img src=image/5-1.jpg>,1. 23,2. 25,3. 27,4. 21,";
+
+itempool+="下面的迴圈執行完後，w的值為何?<br><img src=image/5-2.jpg><br>,1. 29,2. 34,3. 24,4. 39,";
+
+itempool+="下面的迴圈執行完後，d的值為何?<br><img src=image/5-3.jpg><br>,1. -10,2. -12,3. -14,4. -8,";
+
+itempool+="看下面的迴圈，i++會做幾次，int i = 0會做幾次？<br><img src=image/5-4.jpg><br>,1. i++做12次，int i = 0做1次,2. i++做11次，int i = 0做11次,3. i++做11次，int i = 0做1次,4. i++做12次，int i = 0做11次,";
+
+itempool+="看下面的迴圈，選出適合的選項<br><img src=image/5-5.jpg><br>?,1.最後會印出d的值，d = 4,2.這個程式有語法的錯誤,3.這個程式會ㄧ直執行不會停,4.最後會印出d的值，d = -12";
+
+
+
+var quest=new Array();
+var ans = new Array(2,1,2,3,3);//new can be omitted
+var re1 = new Array(0,0,0,0,0);
+var re2 = new Array("1.<img src=image/5-1.jpg>for會執行11次故2*11+3=25<hr><br>",
+"2.<img src=image/5-2.jpg>count會執行到小於14才停而每次都加4，於是執行count=1 4 7 10 13共5次，5*5+4=29<hr><br>",
+"3.<img src=image/5-3.jpg>count會執行到小於30才停而每次都加4，於是執行count=1 5 9 13 17 21 25 29共7次，8*(-2)+4=-12<hr><br>",
+"4.<img src=image/5-4.jpg>i從0~10故執行11次，而中間i=0只會執行一次，之後i會一直改變直到變成11<hr><br>",
+"5.<img src=image/5-4.jpg>i若>=將繼續執行，但一開始i的值就>0，故會不斷執行<hr><br>");
+quest=itempool.split(",");
+total=quest.length/5;
+
+var realno=0;
+var userreply=0, sc=0;
+var repeat=0;
+var feed="";
+var times = 0;
+var good24 = 0;
+function checkans()
+{
+ if (repeat==0) {
+  if (userreply==ans[realno])
+   {
+    switch(times){
+	case 0:
+		sc+=20;
+		good24 = good24 + 1;
+	break;
+	case 1:
+		sc+=10;
+	break;
+	case 2:
+		sc+=5;
+	break;
+	default:
+		sc+=0;	
+    }
+
+    feed="答對!!";
+    re1[realno] = times;
+    times = 0;
+    repeat=1;//avoid answering repeatedly
+    realno++; //next question No.
+	var x = "";
+	for(var i = 0;i<realno;i++){
+	x = x+"<img src=image/SQUARE.jpg width = 50 length = 50>";
+    }
+	document.getElementById('reward').innerHTML=  x + "已答 "+ realno + "題/ " + " 還有 "+ total + " 題";
+   }
+  else{
+    feed="答錯!!";
+    times++;
+  }
+  
+ }
+ document.getElementById('report').innerHTML=feed+"your score is <font color=red>"+sc+"</font>";
+}
+function nextqest()
+{
+	if (realno<total)
+	{
+		var audioElm = document.getElementById("audio1");
+		
+		repeat=0;
+		document.getElementById('no').innerHTML="第 <font color=red>"+eval(realno+1)+"</font>題";
+		var problem=document.getElementById('prob1');
+		problem.innerHTML=quest[eval(realno*5+0)];
+		var item1=document.getElementById('item1');
+		item1.innerHTML=quest[eval(realno*5+1)];
+		var item2=document.getElementById('item2');
+		item2.innerHTML=quest[eval(realno*5+2)];
+		var item3=document.getElementById('item3');
+		item3.innerHTML=quest[eval(realno*5+3)];
+		var item4=document.getElementById('item4');
+		item4.innerHTML=quest[eval(realno*5+4)];
+		
+	}
+	else{
+		var j = 0;
+		var i = "觀念導正:<br><br>";
+		
+		for(j = 0; j < re1.length; j++){
+			if(re1[j] > 1){
+				i = i + re2[j];
+			}
+		}
+		document.getElementById('enhance').innerHTML=i;
+		
+	}
+}
+window.onload=function (){
+nextqest();
+}
+</script>
+		<footer>
+			<a href = "weclome.html" target="content"><p class="white">return to index</p></a>
+		</footer>
+
+
+	</body>
+
+</html>

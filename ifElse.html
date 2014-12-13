@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+	
+	<body>
+	<form name=ifElseForm>
+		<table>
+			<tr>
+				<td><p id = "ifElseOne">int a;</p></td><td></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseTwo">if(a == 4){</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseThree">a = a + 2;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseFour">}else if(a == 6){</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseFive">a = a + 6;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseSix">}else{</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseSeven">a = a + 3;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseEight">}</p></td>
+			</tr>
+			<tr>
+				<td><p id = "ifElseNine">if-else的外面</p></td>
+			</tr>
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "ifElseNext();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "ifElseClear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 a</td><td><input type=text value="" id=n6 size="10"></td>
+			</tr>
+		</table>
+			<table>
+				<tr>
+					<td><textarea name="Content" style="width:400px;height:120px;" id=ifElseArea readonly="readonly"></textarea></td>
+				</tr>
+			</table>	
+	</form>
+		<script>
+			var ifElseStatus = 0;
+			var ifElses = "宣告變數 a 為一個整數，它的值為 ";
+			var ifElses1 = "\n現在a 的值是不是等於4呢?";
+			var ifElses2 = "\n是的，a的值為4進入內部 執行a = a + 2;  現在a的值為 ";
+			var ifElses3 = "\n不是，接著判斷a 的值是不是等於6呢?";
+			var ifElses4 = "\n是的，a的值為6進入內部 執行a = a + 6;  現在a的值為 ";
+			var ifElses5 = "\n不是，現在將要執行else {}範圍內的敘述";
+			var ifElses6 = "\n做 a = a + 3; 現在a的值為 ";
+			var ifElses7 = "\n到if-else 的末端";
+			var ifElses8 = "\n到 if-else 外面";
+			var ifElseString = "";
+			var ifElseA = 0;
+	
+			function ifElseNext(){
+				var numberA = eval(document.ifElseForm.n6.value);
+				//document.getElementById("ifElseArea").innerHTML = numberA;
+				if(ifElseStatus == 0){
+					document.getElementById("ifElseOne").style.backgroundColor = "#ff6";
+					ifElseA = numberA;
+					document.getElementById("ifElseOne").innerHTML = "int a = " + ifElseA + ";";
+					ifElseString = ifElseString + ifElses + numberA;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					ifElseStatus = 1;
+				}else if(ifElseStatus == 1){
+					document.getElementById("ifElseOne").style.backgroundColor = "#fff";
+					document.getElementById("ifElseTwo").style.backgroundColor = "#ff6";
+					ifElseString = ifElseString + ifElses1;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					if(numberA == 4){
+						ifElseStatus = 2;
+					}else{
+						ifElseStatus = 3;
+					}
+				}else if(ifElseStatus == 2){
+					document.getElementById("ifElseTwo").style.backgroundColor = "#fff";
+					document.getElementById("ifElseThree").style.backgroundColor = "#ff6";
+					ifElseA = ifElseA + 2;
+					ifElseString = ifElseString + ifElses2 + ifElseA;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					ifElseStatus = 7;
+				}else if(ifElseStatus == 3){
+					document.getElementById("ifElseTwo").style.backgroundColor = "#fff";
+					document.getElementById("ifElseFour").style.backgroundColor = "#ff6";
+					ifElseString = ifElseString + ifElses3;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					if(numberA == 6){
+						ifElseStatus = 4;
+					}else{
+						ifElseStatus = 5;
+					}
+				}else if(ifElseStatus == 4){
+					document.getElementById("ifElseFour").style.backgroundColor = "#fff";
+					document.getElementById("ifElseFive").style.backgroundColor = "#ff6";
+					ifElseA = ifElseA + 6;
+					ifElseString = ifElseString + ifElses4 + ifElseA;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					ifElseStatus = 7;
+				}else if(ifElseStatus == 5){
+					document.getElementById("ifElseFour").style.backgroundColor = "#fff";
+					document.getElementById("ifElseSix").style.backgroundColor = "#ff6";
+					ifElseString = ifElseString + ifElses5;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					ifElseStatus = 6;
+				}else if(ifElseStatus == 6){
+					document.getElementById("ifElseSix").style.backgroundColor = "#fff";
+					document.getElementById("ifElseSeven").style.backgroundColor = "#ff6";
+					ifElseA = ifElseA + 3;
+					ifElseString = ifElseString + ifElses6 + ifElseA;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					ifElseStatus = 7;
+				}else if(ifElseStatus == 7){
+					document.getElementById("ifElseThree").style.backgroundColor = "#fff";
+					document.getElementById("ifElseFive").style.backgroundColor = "#fff";
+					document.getElementById("ifElseSeven").style.backgroundColor = "#fff";
+					document.getElementById("ifElseEight").style.backgroundColor = "#ff6";
+					ifElseString = ifElseString + ifElses7;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					ifElseStatus = 8;
+				}else if(ifElseStatus == 8){
+					document.getElementById("ifElseEight").style.backgroundColor = "#fff";
+					document.getElementById("ifElseNine").style.backgroundColor = "#ff6";
+					ifElseString = ifElseString + ifElses8;
+					document.getElementById("ifElseArea").innerHTML = ifElseString;
+					ifElseStatus = 9;
+				}
+			}// end function
+
+			function ifElseClear(){
+				document.getElementById("ifElseOne").style.backgroundColor = "#fff";
+				document.getElementById("ifElseTwo").style.backgroundColor = "#fff";
+				document.getElementById("ifElseThree").style.backgroundColor = "#fff";
+				document.getElementById("ifElseFour").style.backgroundColor = "#fff";
+				document.getElementById("ifElseFive").style.backgroundColor = "#fff";
+				document.getElementById("ifElseSix").style.backgroundColor = "#fff";
+				document.getElementById("ifElseSeven").style.backgroundColor = "#fff";
+				document.getElementById("ifElseEight").style.backgroundColor = "#fff";
+				document.getElementById("ifElseNine").style.backgroundColor = "#fff";
+				ifElseStatus = 0;
+				ifElseString = "";
+				document.getElementById("ifElseArea").innerHTML = "";
+				document.getElementById("ifElseOne").innerHTML = "int a;";
+				ifElseA = 0;
+				document.ifElseForm.n6.value = "";
+			}
+		</script>
+	</body>
+</html>

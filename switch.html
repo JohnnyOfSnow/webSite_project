@@ -1,0 +1,232 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+	
+	<body>
+	<form name=switchForm>
+		<table>
+			<tr>
+				<td><p id = "switchOne">int k;</p></td><td></td>
+			</tr>
+			<tr>
+				<td><p id = "switchTwo">switch(k){</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchThree">case 2:</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchFour">k = k + 4;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchFive">break;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchSix">case 4:</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchSeven">k = k + 6;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchEight">break;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchNine">case 6:</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switchTen">k = k + 8;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switch11">break;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switch12">default:</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switch13">k = k + 10;</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switch14">}</p></td>
+			</tr>
+			<tr>
+				<td><p id = "switch15">switch的外面</p></td>
+			</tr>
+
+			<tr>
+				<td><input type = "button"  value = "下一步" onClick = "switchNext();"></td>
+				<td><input type = "button"  value = "全部清除" onClick = "switchClear();"></td>
+			</tr>
+			<tr>
+				<td>請輸入一個整數值給 k</td><td><input type=text value="" id=n7 size="10"></td>
+			</tr>
+		</table>
+			<table>
+				<tr>
+					<td><textarea name="Content" style="width:400px;height:120px;" id=switchArea readonly="readonly"></textarea></td>
+				</tr>
+			</table>	
+	</form>
+		<script>
+			var switchStatus = 0;
+			var switchs = "宣告變數 k 為一個整數，它的值為 ";
+			var switchs1 = "\n現在switch 會根據k的值開始判斷";
+			var switchs2 = "\nk的值是否為2呢?";
+			var switchs3 = "\n是的，做 k = k + 4; 現在k的值為 ";
+			var switchs4 = "\n不是，再判斷k的值是否為4呢?";
+			var switchs5 = "\n是的，做 k = k + 6; 現在k的值為 ";
+			var switchs6 = "\n不是，再判斷k的值是否為6呢?";
+			var switchs7 = "\n是的，做 k = k + 8; 現在k的值為 ";
+			var switchs8 = "\n以上的判斷都不是，就會來到default的這一區塊";
+			var switchs9 = "\n做 k = k + 10; 現在k的值為 ";
+			var switchs10 = "\n到switch的尾端";
+			var switchs11 = "\nswitch的外面";
+			var switchsBreak = "\n遇到break";
+			var switchString = "";
+			var switchK = 0;
+
+			function switchNext(){
+				var numberK = eval(document.switchForm.n7.value);
+				//document.getElementById("switchArea").innerHTML = numberK;
+				if(switchStatus == 0){
+					switchK = numberK;
+					switchString =  switchString + switchs + numberK;
+					document.getElementById("switchArea").innerHTML = switchString;
+					document.getElementById("switchOne").innerHTML = "int k = " + switchK + ";";
+					document.getElementById("switchOne").style.backgroundColor = "#ff6";
+					switchStatus = 1;
+				}else if(switchStatus == 1){
+					document.getElementById("switchOne").style.backgroundColor = "#fff";
+					document.getElementById("switchTwo").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchs1;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 2;
+				}else if(switchStatus == 2){
+					document.getElementById("switchTwo").style.backgroundColor = "#fff";
+					document.getElementById("switchThree").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchs2;
+					document.getElementById("switchArea").innerHTML = switchString;
+					if(numberK == 2){
+						switchStatus = 3;
+					}else{
+						switchStatus = 5;
+					}
+				}else if(switchStatus == 3){
+					document.getElementById("switchThree").style.backgroundColor = "#fff";
+					document.getElementById("switchFour").style.backgroundColor = "#ff6";
+					switchK = switchK + 4;
+					switchString =  switchString + switchs3 + switchK;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 4;
+				}else if(switchStatus == 4){
+					document.getElementById("switchFour").style.backgroundColor = "#fff";
+					document.getElementById("switchFive").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchsBreak;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 13;
+				}else if(switchStatus == 5){
+					document.getElementById("switchThree").style.backgroundColor = "#fff";
+					document.getElementById("switchSix").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchs4;
+					document.getElementById("switchArea").innerHTML = switchString;
+					if(numberK == 4){
+						switchStatus = 6;
+					}else{
+						switchStatus = 8;
+					}
+				}else if(switchStatus == 6){
+					document.getElementById("switchSix").style.backgroundColor = "#fff";
+					document.getElementById("switchSeven").style.backgroundColor = "#ff6";
+					switchK = switchK + 6;
+					switchString =  switchString + switchs5 + switchK;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 7;
+				}else if(switchStatus == 7){
+					document.getElementById("switchSeven").style.backgroundColor = "#fff";
+					document.getElementById("switchEight").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchsBreak;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 13;
+				}else if(switchStatus == 8){
+					document.getElementById("switchSix").style.backgroundColor = "#fff";
+					document.getElementById("switchNine").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchs6;
+					document.getElementById("switchArea").innerHTML = switchString;
+					if(numberK == 6){
+						switchStatus = 9;
+					}else{
+						switchStatus = 11;
+					}
+				}else if(switchStatus == 9){
+					document.getElementById("switchNine").style.backgroundColor = "#fff";
+					document.getElementById("switchTen").style.backgroundColor = "#ff6";
+					switchK = switchK + 8;
+					switchString =  switchString + switchs7 + switchK;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 10;
+				}else if(switchStatus == 10){
+					document.getElementById("switchTen").style.backgroundColor = "#fff";
+					document.getElementById("switch11").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchsBreak;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 13;
+				}else if(switchStatus == 11){
+					document.getElementById("switchNine").style.backgroundColor = "#fff";
+					document.getElementById("switch12").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchs8;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 12;
+				}else if(switchStatus == 12){
+					document.getElementById("switch12").style.backgroundColor = "#fff";
+					document.getElementById("switch13").style.backgroundColor = "#ff6";
+					switchK = switchK + 10;
+					switchString =  switchString + switchs9 + switchK;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 13;
+				}else if(switchStatus == 13){
+					document.getElementById("switchFive").style.backgroundColor = "#fff";
+					document.getElementById("switchEight").style.backgroundColor = "#fff";
+					document.getElementById("switch11").style.backgroundColor = "#fff";
+					document.getElementById("switch13").style.backgroundColor = "#fff";
+					document.getElementById("switch14").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchs10;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 14;
+				}else if(switchStatus == 14){
+					document.getElementById("switch14").style.backgroundColor = "#fff";
+					document.getElementById("switch15").style.backgroundColor = "#ff6";
+					switchString =  switchString + switchs11;
+					document.getElementById("switchArea").innerHTML = switchString;
+					switchStatus = 15;
+				}else{
+
+				}
+			}
+
+			function switchClear(){
+				document.getElementById("switchOne").style.backgroundColor = "#fff";
+				document.getElementById("switchTwo").style.backgroundColor = "#fff";
+				document.getElementById("switchThree").style.backgroundColor = "#fff";
+				document.getElementById("switchFour").style.backgroundColor = "#fff";
+				document.getElementById("switchFive").style.backgroundColor = "#fff";
+				document.getElementById("switchSix").style.backgroundColor = "#fff";
+				document.getElementById("switchSeven").style.backgroundColor = "#fff";
+				document.getElementById("switchEight").style.backgroundColor = "#fff";
+				document.getElementById("switchNine").style.backgroundColor = "#fff";
+				document.getElementById("switchTen").style.backgroundColor = "#fff";
+				document.getElementById("switch11").style.backgroundColor = "#fff";
+				document.getElementById("switch12").style.backgroundColor = "#fff";
+				document.getElementById("switch13").style.backgroundColor = "#fff";
+				document.getElementById("switch14").style.backgroundColor = "#fff";
+				document.getElementById("switch15").style.backgroundColor = "#fff";
+				switchString = "";
+				switchStatus = 0;
+				switchK = 0;
+				document.getElementById("switchArea").innerHTML = "";
+				document.switchForm.n7.value = "";
+				document.getElementById("switchOne").innerHTML = "";
+			}
+		</script>
+
+	</body>
+</html>

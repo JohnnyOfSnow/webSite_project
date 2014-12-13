@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="myCss.css">
+	</head>
+<body  bgcolor="black">
+		<nav>
+			<br>
+			<br>
+			<h5><p class="white">新手上路</p></h5>
+			<ul>
+				<leftChoose>	
+					<li><a href = "index12.html" >環境安裝與第1個程式</a></li>
+				</leftChoose>
+			</ul> 
+			<h5><p class="white">教學頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index0.html" >物件導向程式概說</a></li>
+				<li>  <a href = "index1.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index2.html" >Static vs Instance</a></li>
+				<li>  <a href = "index3.html" >Local vs. global</a></li>
+				<li>  <a href = "index4.html" >判斷式介紹</a></li>
+				<li>  <a href = "index5.html" >迴圈介紹</a></li>
+				<li>  <a href = "index6.html" >常見程式錯誤</a></li></leftChoose>
+			</ul>
+
+			<h5><p class="white">測驗頁面</p></h5>
+			<ul>
+				<leftChoose>
+				<li>  <a href = "index7.html" >定義類別、變數、方法</a></li>
+				<li>  <a href = "index8.html" >Static vs. instance</a></li>
+				<li>  <a href = "index9.html" >Local vs. global</a></li>
+				<li>  <a href = "index10.html" >判斷式介紹</a></li>
+				<li>  <a href = "index11.html" >迴圈介紹</a></li></leftChoose>
+			</ul>
+		</nav>
+		<section>
+			<h3>環境安裝與第1個程式</h3>
+			<blockquote>歡迎來到程式的世界，在本頁中將要教你要如何寫基本的java程式</blockquote>
+			<blockquote>所謂工欲善其事，必先利其器，要寫java程式之前，必須安裝一些東西，設定開發程式的環境，接下來，我們從設定開發程式的環境開始。</blockquote>
+			<p class="demo">ㄧ、環境安裝</p>
+			<blockquote>首先，你可能在使用瀏覽器時有遇到java的安裝，但那個並不是我們這裡講的開發java的環境，因為有些網頁上的程式需要用到java一些元件，所以這個僅能讓我們觀看。</blockquote>
+			<blockquote>現在，請按照下面的步驟，完成開發java的環境的安裝。</blockquote>
+			<hr>
+			<p class="green">首先，請打開瀏覽器收尋jdk</p>
+			<blockquote>jdk代表java develop kit，這個裡面有開發java程式所需的元件</blockquote>
+			<p class="green">然後請點選這一個</p>
+			<img src=image/12-1.jpg>
+			<p class="green">進去之後，請在那個頁面找到這裡</p>
+			<img src=image/12-2.jpg>
+			<p class="green">請先點選OAccept License Agreement，然後你才可以點選下面下載，根據你的電腦作業系統以及位元數選擇。</p>
+			<p class="green">下載完後，請對著剛剛下載的檔案點2下完成安裝。</p>
+			<p class="green">到此，我們已經完成安裝所需的開發環境，接著，我們要設定環境</p>
+			<hr>
+			<p class="green">請先找到你剛剛安裝的jdk路徑，然後打開bin資料夾，將現在的位置複製起來。</p>
+			<p class="green">例如：C:\Program Files\Java\jdk1.7.0_45\bin</p>
+			<p class="green">然後找到我的電腦</p>
+			<img src=image/12-3.jpg>
+			<img src=image/12-4.jpg>
+			<img src=image/12-5.jpg>
+			<p class="green">將所有視窗都按下確定之後，到此已經完成設定環境的步驟。</p>
+			<p class="green">接著，我們開始寫第1個程式，並且執行它。</p>
+			<p class="demo">二、第1個程式</p>
+			<pre>寫程式的步驟：1.想你要寫什麼，2.開啟文字編輯程式(寫程式) 3.編譯  4.執行</pre>
+			<p id="red">1.想你要寫什麼</p>
+			<p class="green">這裡我們是第1次寫程式，所以我們先練習印出"第1個程式"這5個字。</p>
+			<hr>
+			<p id="red">2.開啟文字編輯程式(寫程式)</p>
+			<p class="green">請打開這個<img src=image/12-6.jpg>，或是任何可以輸入文字的軟體都可以</p>
+			<p class="green">在裡面開始輸入下面的內容</p>
+			<pre>public class Test{</pre>
+			<pre>	public static void main(String[] args){</pre>
+			<pre>		System.out.println("第1個程式");</pre>
+			<pre>	}</pre>
+			<pre>}</pre>
+			<p class="green">完成之後，請存檔。</p>
+			<img src=image/12-7.jpg>
+			<p class="green">程式說明：</p>
+			<pre>public class 檔名{</pre>
+			<pre>	public static void main(String[] args){</pre>
+			<pre>	}</pre>
+			<pre>}</pre>
+			<p class="green">上面的部份，是每ㄧ個java程式所需要的部份，其中public class 之後的字，決定存檔的檔名，在public static void main(String[] args){}的左右括弧內我們可以想要做的事，剛剛打的System.out.println("第1個程式");，其中System.out.println()這個是印出被""包的文字的敘述，這個程式執行完後，預期會印出第1個程式這5個字。</p>
+
+			<p class="green">到此我們已經完成編寫程式的動作，接著要執行程式。</p>
+			<hr>
+			<p class="green">首先，請打開這個<img src=image/12-8.jpg>，找不到的話，可以用搜尋cmd的方式。</p>
+			<p class="green">再來將你剛剛寫的程式找到它的位置並且複製<img src=image/12-9.jpg></p>
+			<p class="green">例如：C:\Documents and Settings\Genuine\桌面</p>
+			<p class="green">在命令提示字元視窗中輸入</p>
+			<p class="green">cd 你剛剛複製的位置</p>
+			<p class="green">然後按下enter <img src=image/12-10.jpg></p>
+			<p class="green">有沒有發現字不一樣，現在這個動作是將編譯位置移動到程式的位置</p>
+			<blockquote>什麼叫做編譯呢?簡單來說，是要讓電腦看你的程式之後，改成電腦看的懂的字，以方便電腦執行。</blockquote>
+			<hr>
+			<p id="red">3.編譯</p>
+			<p class="green">接著我們要進行編譯的動作</p>
+			<p class="green">在命令提示字元視窗中繼續輸入</p>
+			<p class="green">javac Test.java</p>
+			<p class="green">然後按下enter <img src=image/12-11.jpg></p>
+			<p class="green">剛剛按下enter後，你發現到有過一些時間後才跳出下一行，在這段時間中電腦正在進行編譯的動作，另外ㄧ件事，你發現到和程式同位置的地方多了一個檔案<img src=image/12-12.jpg>，這就是剛剛說的(電腦看你的程式之後，改成電腦看的懂的字，以方便電腦執行。)，它做了類似一種筆記的方式，上面寫著程式要如何執行(但對我們人，我們不是看的懂)。</p>
+			<hr>
+			<p id="red">4.執行</p>
+			<p class="green">編譯完了之後，我們可以執行程式了。</p>
+			<p class="green">在命令提示字元視窗中繼續輸入</p>
+			<p class="green">java Test</p>
+			<p class="green">然後按下enter <img src=image/12-13.jpg></p>
+			<p class="green">我們看到剛剛在程式中的"第1個程式"這5個字，出現在視窗上了。</p>
+			<p class="green">到此我們完成執行程式了。</p>
+
+		</section>
+		<footer>
+			<a href = "weclome.html" target="content"><p class="white">return to index</p></a>
+		</footer>
+
+	</body>
+</html>
